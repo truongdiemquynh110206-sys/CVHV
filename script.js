@@ -1,1237 +1,915 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    /* =====================================================
-       DỮ LIỆU SẢN PHẨM
-       KHÔNG CHIA DANH MỤC
-       ===================================================== */
-
-    const products = [
-        {
-            id: 1,
-            name: "Bộ Gốm Bát Tràng Họa Tiết Truyền Thống",
-            price: 1850000,
-            image: "https://xuonggomsuviet.vn/wp-content/uploads/2019/04/doc-dao-ky-thuat-trang-tri-tren-san-pham-gom-su-bat-trang-1.jpg",
-            origin: "Làng gốm Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Gốm sứ Bát Tràng cao cấp",
-            size: "Bộ sản phẩm tiêu chuẩn",
-            technique: "Trang trí thủ công",
-            description: "Sản phẩm gốm Bát Tràng được chế tác và trang trí thủ công, mang đậm nét văn hóa truyền thống của làng nghề."
-        },
-
-        {
-            id: 2,
-            name: "Bộ Gốm Sứ Bát Tràng Cao Cấp",
-            price: 2450000,
-            image: "https://battrangvietnam.vn/wp-content/uploads/2024/09/dong-san-pham-dac-trung-cua-bat-trang-13.jpg",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Gốm sứ cao cấp",
-            size: "Bộ sản phẩm",
-            technique: "Tạo hình và nung thủ công",
-            description: "Dòng sản phẩm đặc trưng của Bát Tràng với kiểu dáng thanh lịch, phù hợp sử dụng trong gia đình hoặc làm quà tặng."
-        },
-
-        {
-            id: 3,
-            name: "Bộ Bát Đĩa Hoa Cúc Vẽ Tay",
-            price: 2890000,
-            image: "https://battrangvietnam.vn/wp-content/uploads/2024/04/bo-bat-dia-gia-co-hoa-tiet-hoa-cuc-ve-tay-4.jpg",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Sứ trắng cao cấp",
-            size: "Bộ nhiều món",
-            technique: "Vẽ tay thủ công",
-            description: "Bộ bát đĩa với họa tiết hoa cúc được vẽ thủ công, tạo cảm giác trang nhã và sang trọng."
-        },
-
-        {
-            id: 4,
-            name: "Bộ Bát Đĩa Sứ Hoa Sen Xanh",
-            price: 2750000,
-            image: "https://battrangvietnam.vn/wp-content/uploads/2024/04/bo-bat-dia-su-trang-hoa-tiet-hoa-sen-xanh-2.jpg",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Sứ trắng",
-            size: "Bộ nhiều món",
-            technique: "Trang trí họa tiết hoa sen",
-            description: "Bộ bát đĩa sứ trắng họa tiết hoa sen xanh mang vẻ đẹp nhẹ nhàng, phù hợp với không gian ăn uống hiện đại."
-        },
-
-        {
-            id: 5,
-            name: "Đồ Gốm Trang Trí Làng Nghề Bát Tràng",
-            price: 1650000,
-            image: "https://i1-vnexpress.vnecdn.net/2019/12/19/lang-gom-Bat-Trang-png-6590-1576729451.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=qNrvTb1lci5tRl9RRQ9COw",
-            origin: "Làng gốm Bát Tràng",
-            material: "Gốm đất nung",
-            size: "Nhiều kích thước",
-            technique: "Thủ công truyền thống",
-            description: "Sản phẩm mang nét đặc trưng của làng nghề Bát Tràng, thích hợp làm vật dụng trang trí hoặc quà lưu niệm."
-        },
-
-        {
-            id: 6,
-            name: "Bảo Bình Sen Cá Phú Quý Cao 60cm",
-            price: 12800000,
-            image: "https://godinh.com/web/image/product.template/81280/image_512/B%E1%BA%A3o%20B%C3%ACnh%20Sen%20C%C3%A1%20Ph%C3%BA%20Qu%C3%BD%20Cao%2060%20%C4%90%C6%B0%E1%BB%9Dng%20K%C3%ADnh%2034%20%28cm%29?unique=a500000",
-            origin: "Bát Tràng, Hà Nội",
-            material: "Gốm sứ cao cấp",
-            size: "Cao khoảng 60cm, đường kính khoảng 34cm",
-            technique: "Đắp nổi và vẽ trang trí",
-            description: "Bảo bình họa tiết sen cá mang ý nghĩa phú quý, thường được sử dụng để trang trí phòng khách hoặc phòng làm việc."
-        },
-
-        {
-            id: 7,
-            name: "Bình Gốm Nghệ Thuật Bát Tràng",
-            price: 4250000,
-            image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcShIutqHKIFFs45SDMVl9Jm8soG0eFnqgLoNSOd_asQBJE52M5j",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Gốm sứ",
-            size: "Kích thước trang trí",
-            technique: "Tạo hình thủ công",
-            description: "Bình gốm nghệ thuật có thiết kế nổi bật, phù hợp trang trí nội thất và làm quà tặng."
-        },
-
-        {
-            id: 8,
-            name: "Cốc Sứ Bát Tràng Men Hỏa Biến",
-            price: 385000,
-            image: "https://battrangvietnam.vn/wp-content/uploads/2025/12/coc-su-bat-trang-men-hoa-bien-dang-tru-co-quai-ls-27-anh-dai-dien.jpg",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Sứ men hỏa biến",
-            size: "Cốc uống nước",
-            technique: "Men hỏa biến",
-            description: "Cốc sứ Bát Tràng sử dụng kỹ thuật men hỏa biến tạo ra màu sắc tự nhiên và độc đáo."
-        },
-
-        {
-            id: 9,
-            name: "Ấm Trà Gốm Bát Tràng Cao Cấp",
-            price: 1680000,
-            image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTMKFGtC66RZipOkQeJgtMMAfcENcr5WdIWRu9TFALRATRhGpBj",
-            origin: "Bát Tràng, Hà Nội",
-            material: "Gốm sứ cao cấp",
-            size: "Ấm trà gia đình",
-            technique: "Tạo hình thủ công",
-            description: "Ấm trà mang phong cách truyền thống, thích hợp dùng thưởng trà hoặc làm quà biếu."
-        },
-
-        {
-            id: 10,
-            name: "Bộ Ấm Chén Gốm Men Cao Cấp",
-            price: 2150000,
-            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd9W4D4mGP2J6ZGS1DJNzcZ5K1DYBdJGXJA46hAFzx7jOTK5egaFjWn5Hr&s=10",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Gốm sứ",
-            size: "Bộ ấm chén",
-            technique: "Nung men thủ công",
-            description: "Bộ ấm chén có thiết kế thanh lịch, phù hợp sử dụng trong gia đình, văn phòng hoặc làm quà tặng."
-        },
-
-        {
-            id: 11,
-            name: "Bộ Đĩa Gốm Trang Trí Cao Cấp",
-            price: 2350000,
-            image: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRqTjHmLxve9gZTwigiRXZm_VY3RcPht7_IgL5_YLOvPX-oAafI",
-            origin: "Bát Tràng, Hà Nội",
-            material: "Gốm sứ",
-            size: "Bộ đĩa trang trí",
-            technique: "Trang trí thủ công",
-            description: "Bộ đĩa gốm mang phong cách trang trí truyền thống, thích hợp trưng bày hoặc sử dụng."
-        },
-
-        {
-            id: 12,
-            name: "Bộ Bát Đĩa Gốm Sứ Gia Đình",
-            price: 2490000,
-            image: "https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mifiykrms9ag43",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Sứ cao cấp",
-            size: "Bộ gia đình",
-            technique: "Nung nhiệt độ cao",
-            description: "Bộ bát đĩa phục vụ nhu cầu sử dụng hàng ngày với thiết kế trang nhã và chất liệu bền đẹp."
-        },
-
-        {
-            id: 13,
-            name: "Bình Gốm Trang Trí Nghệ Thuật",
-            price: 4950000,
-            image: "https://bizweb.dktcdn.net/100/659/338/products/2e9c6da5-bca0-4a06-97a3-0c85f3d74a57.jpg?v=1773291686963",
-            origin: "Bát Tràng, Hà Nội",
-            material: "Gốm sứ nghệ thuật",
-            size: "Bình trang trí",
-            technique: "Tạo hình và trang trí thủ công",
-            description: "Bình gốm nghệ thuật với kiểu dáng nổi bật, phù hợp trang trí không gian phòng khách."
-        },
-
-        {
-            id: 14,
-            name: "Bộ Gốm Sứ Trang Trí Bát Tràng",
-            price: 3250000,
-            image: "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/486496hTq/anh-mo-ta.png",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Gốm sứ",
-            size: "Sản phẩm trang trí",
-            technique: "Thủ công",
-            description: "Sản phẩm gốm sứ mang phong cách đặc trưng Bát Tràng, thích hợp trang trí và làm quà tặng."
-        },
-
-        {
-            id: 15,
-            name: "Bộ Ấm Chén Sứ Hoa Văn Cao Cấp",
-            price: 1950000,
-            image: "https://product.hstatic.net/200000258799/product/z6560994619592_1dd138feeafdadd8b79ef6d63e0a82b1_28308021f6864719bf8ebce77630607a_master.jpg",
-            origin: "Bát Tràng, Hà Nội",
-            material: "Sứ cao cấp",
-            size: "Bộ ấm chén",
-            technique: "Trang trí hoa văn",
-            description: "Bộ ấm chén có hoa văn tinh tế, thích hợp sử dụng khi thưởng trà hoặc tiếp khách."
-        },
-
-        {
-            id: 16,
-            name: "Bình Gốm Bát Tràng Trang Trí",
-            price: 5650000,
-            image: "https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/",
-            origin: "Bát Tràng, Gia Lâm, Hà Nội",
-            material: "Gốm sứ",
-            size: "Bình trang trí",
-            technique: "Chế tác thủ công",
-            description: "Bình gốm trang trí mang phong cách nghệ thuật, phù hợp với nhiều không gian nội thất."
-        },
-
-        {
-            id: 17,
-            name: "Bình Gốm Men Cao Cấp Dáng Nghệ Thuật",
-            price: 6250000,
-            image: "https://neon.vn/image/cache/catalog/products/D39-2-1100x1100.jpg.webp",
-            origin: "Bát Tràng, Hà Nội",
-            material: "Gốm men cao cấp",
-            size: "Bình trang trí",
-            technique: "Men và tạo hình thủ công",
-            description: "Bình gốm có kiểu dáng nghệ thuật, lớp men tạo hiệu ứng đẹp mắt và phù hợp với không gian sang trọng."
-        }
-    ];
+/* =========================================================
+   CHẠM VÀO HỒN VIỆT
+   script.js
+   ---------------------------------------------------------
+   - 16 sản phẩm
+   - Hiển thị lần lượt sản phẩm
+   - Không hiển thị phân loại trên ảnh
+   - Tên sản phẩm ngay dưới hình ảnh
+   - Cộng / trừ số lượng ngay cạnh giá
+   - Giỏ hàng
+   - Chi tiết sản phẩm
+   - Tư vấn khách hàng
+   - Đặt hàng
+   - Tìm kiếm
+   - Newsletter
+   - Hiệu ứng khi mở trang
+   - Không thay đổi font chữ hiện tại
+   ========================================================= */
 
 
-    /* =====================================================
-       GIỎ HÀNG
-       ===================================================== */
+/* =========================================================
+   1. DỮ LIỆU 16 SẢN PHẨM
+   ========================================================= */
 
-    let cart = JSON.parse(
-        localStorage.getItem("batTrangCart")
-    ) || [];
+const products = [
 
+    {
+        id: 1,
+        name: "Đôi Lục Bình Tứ Cảnh Men Lam Cổ",
+        price: 3850000,
+        category: "binh",
+        origin: "Làng nghề Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Đồ trang trí - đôi lục bình",
+        material: "Gốm Bát Tràng, men lam truyền thống",
+        size: "Cao khoảng 45 - 50 cm",
+        technique: "Tạo hình thủ công, vẽ họa tiết và phủ men",
+        description:
+            "Đôi lục bình mang phong cách cổ điển với gam trắng - lam và các họa tiết trang trí truyền thống. Sản phẩm tạo điểm nhấn trang trọng cho phòng khách, sảnh hoặc không gian trưng bày.",
+        use:
+            "Trang trí phòng khách, sảnh, tủ kệ; thích hợp làm quà tân gia và quà biếu.",
+        image:
+            "https://xuonggomsuviet.vn/wp-content/uploads/2019/04/doc-dao-ky-thuat-trang-tri-tren-san-pham-gom-su-bat-trang-1.jpg"
+    },
 
-    /* =====================================================
-       FORMAT GIÁ
-       ===================================================== */
+    {
+        id: 2,
+        name: "Bộ Bát Đĩa Men Lam Hoa Văn Bát Tràng",
+        price: 2980000,
+        category: "bat",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bộ đồ ăn gia đình cao cấp",
+        material: "Gốm/sứ Bát Tràng, men trắng vẽ lam",
+        size: "Bộ nhiều món",
+        technique: "Tạo hình, nung nhiệt cao, trang trí họa tiết",
+        description:
+            "Bộ bát đĩa mang vẻ đẹp thanh lịch với nền trắng và họa tiết xanh lam. Thiết kế phù hợp cho bàn ăn gia đình, nhà hàng phong cách truyền thống hoặc làm quà biếu.",
+        use:
+            "Dùng trong bữa ăn, tiếp khách, nhà hàng hoặc làm quà tặng.",
+        image:
+            "https://battrangvietnam.vn/wp-content/uploads/2024/09/dong-san-pham-dac-trung-cua-bat-trang-13.jpg"
+    },
 
-    function formatPrice(price) {
-        return Number(price).toLocaleString("vi-VN") + " ₫";
+    {
+        id: 3,
+        name: "Bộ Bát Đĩa Hoa Cúc Vẽ Tay Men Trắng",
+        price: 2680000,
+        category: "bat",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bộ bát đĩa gia dụng - quà tặng",
+        material: "Sứ trắng Bát Tràng, men bóng",
+        size: "Bộ gia đình nhiều món",
+        technique: "Vẽ họa tiết hoa cúc, nung nhiệt cao",
+        description:
+            "Bộ bát đĩa lấy hoa cúc làm điểm nhấn. Các họa tiết được bố trí hài hòa trên nền men trắng, tạo cảm giác nhẹ nhàng, thanh lịch và gần gũi.",
+        use:
+            "Dùng cho gia đình, tiếp khách, quà cưới hoặc quà tân gia.",
+        image:
+            "https://battrangvietnam.vn/wp-content/uploads/2024/04/bo-bat-dia-gia-co-hoa-tiet-hoa-cuc-ve-tay-4.jpg"
+    },
+
+    {
+        id: 4,
+        name: "Bộ Bát Đĩa Hoa Sen Xanh Men Trắng",
+        price: 2480000,
+        category: "bat",
+        origin: "Làng gốm Bát Tràng, Hà Nội",
+        type: "Bộ đồ ăn cao cấp",
+        material: "Sứ trắng Bát Tràng, men bóng",
+        size: "Bộ gia đình nhiều món",
+        technique: "Tạo hình, vẽ họa tiết hoa sen, nung nhiệt cao",
+        description:
+            "Bộ bát đĩa hoa sen xanh mang biểu tượng thanh nhã của văn hóa Việt. Nền men trắng làm nổi bật sắc xanh, tạo cảm giác tinh tế trên bàn ăn.",
+        use:
+            "Dùng cho gia đình, tiếp khách, bàn ăn và quà tặng.",
+        image:
+            "https://battrangvietnam.vn/wp-content/uploads/2024/04/bo-bat-dia-su-trang-hoa-tiet-hoa-sen-xanh-2.jpg"
+    },
+
+    {
+        id: 5,
+        name: "Bảo Bình Sen Cá Phú Quý",
+        price: 4250000,
+        category: "binh",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bình trang trí nghệ thuật",
+        material: "Gốm Bát Tràng, men màu trang trí",
+        size: "Cao khoảng 60 cm, đường kính khoảng 34 cm",
+        technique: "Tạo hình thủ công, trang trí và phủ men",
+        description:
+            "Bảo bình kích thước lớn lấy hình tượng sen và cá làm chủ đề trang trí. Thiết kế phù hợp với không gian phòng khách, sảnh hoặc khu vực tiếp khách.",
+        use:
+            "Trang trí nội thất, quà tân gia, quà doanh nghiệp.",
+        image:
+            "https://i1-vnexpress.vnecdn.net/2019/12/19/lang-gom-Bat-Trang-png-6590-1576729451.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=qNrvTb1lci5tRl9RRQ9COw"
+    },
+
+    {
+        id: 6,
+        name: "Bảo Bình Sen Cá Phú Quý Cao Cấp",
+        price: 4980000,
+        category: "binh",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bình phong thủy - nghệ thuật",
+        material: "Gốm Bát Tràng, men trang trí cao cấp",
+        size: "Dòng bình lớn",
+        technique: "Tạo hình thủ công, trang trí, nung nhiệt cao",
+        description:
+            "Mẫu bảo bình lấy sen và cá làm điểm nhấn, hướng đến vẻ đẹp trang trọng và ý nghĩa cát tường. Phù hợp để trưng bày trong phòng khách hoặc không gian tiếp khách.",
+        use:
+            "Trang trí, quà tân gia, quà mừng khai trương.",
+        image:
+            "https://godinh.com/web/image/product.template/81280/image_512/B%E1%BA%A3o%20B%C3%ACnh%20Sen%20C%C3%A1%20Ph%C3%BA%20Qu%C3%BD%20Cao%2060%20%C4%90%C6%B0%E1%BB%9Dng%20K%C3%ADnh%2034%20%28cm%29?unique=a500000"
+    },
+
+    {
+        id: 7,
+        name: "Cốc Sứ Bát Tràng Men Hỏa Biến Dáng Trụ",
+        price: 1250000,
+        category: "am",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Cốc sứ thủ công",
+        material: "Gốm/sứ Bát Tràng, men hỏa biến",
+        size: "Cốc dáng trụ",
+        technique: "Tạo dáng thủ công, phủ men hỏa biến",
+        description:
+            "Cốc dáng trụ với bề mặt men hỏa biến tạo chuyển sắc tự nhiên sau quá trình nung. Mỗi sản phẩm có thể có sắc độ khác nhau.",
+        use:
+            "Uống trà, cà phê, nước; sử dụng tại nhà hoặc văn phòng.",
+        image:
+            "https://battrangvietnam.vn/wp-content/uploads/2025/12/coc-su-bat-trang-men-hoa-bien-dang-tru-co-quai-ls-27-anh-dai-dien.jpg"
+    },
+
+    {
+        id: 8,
+        name: "Bộ Ba Bình Hoa Men Ngọc Trang Trí",
+        price: 1850000,
+        category: "binh",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bộ bình hoa trang trí",
+        material: "Gốm Bát Tràng, men màu",
+        size: "Bộ 3 bình",
+        technique: "Tạo hình thủ công, phủ men màu, nung hoàn thiện",
+        description:
+            "Bộ ba bình hoa kết hợp các sắc xanh, xanh đậm và trắng, phù hợp tạo bố cục trang trí nhiều tầng. Có thể sử dụng riêng hoặc trưng bày thành bộ.",
+        use:
+            "Trang trí bàn, kệ, tủ phòng khách, quầy lễ tân.",
+        image:
+            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcShIutqHKIFFs45SDMVl9Jm8soG0eFnqgLoNSOd_asQBJE52M5j"
+    },
+
+    {
+        id: 9,
+        name: "Đĩa Trang Trí Cá Sóng Men Lam",
+        price: 3650000,
+        category: "bat",
+        origin: "Làng nghề Bát Tràng, Hà Nội",
+        type: "Đĩa gốm trang trí nghệ thuật",
+        material: "Gốm Bát Tràng, men lam và men màu",
+        size: "Đĩa đường kính lớn",
+        technique: "Trang trí họa tiết thủ công, nung nhiệt cao",
+        description:
+            "Đĩa trang trí kích thước lớn với hình tượng cá và sóng nước, sử dụng sắc xanh làm chủ đạo. Có thể treo tường hoặc đặt trên giá đỡ.",
+        use:
+            "Trang trí tường, tủ, kệ; làm quà tặng nghệ thuật.",
+        image:
+            "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTMKFGtC66RZipOkQeJgtMMAfcENcr5WdIWRu9TFALRATRhGpBj"
+    },
+
+    {
+        id: 10,
+        name: "Bình Trang Trí Hoa Điểu Họa Tiết Hope",
+        price: 4580000,
+        category: "binh",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bình trang trí nghệ thuật",
+        material: "Gốm Bát Tràng, men trang trí đa sắc",
+        size: "Dòng bình trung - lớn",
+        technique: "Vẽ và phối họa tiết thủ công",
+        description:
+            "Mẫu bình trang trí kết hợp họa tiết hoa, chim và bố cục trang nhã. Thiết kế phù hợp với những không gian cần một điểm nhấn nghệ thuật.",
+        use:
+            "Phòng khách, sảnh, tủ kệ, quà tặng.",
+        image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd9W4D4mGP2J6ZGS1DJNzcZ5K1DYBdJGXJA46hAFzx7jOTK5egaFjWn5Hr&s=10"
+    },
+
+    {
+        id: 11,
+        name: "Bộ Ấm Chén Men Rạn Họa Tiết Cổ",
+        price: 2680000,
+        category: "am",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bộ ấm chén thưởng trà",
+        material: "Gốm Bát Tràng, men rạn",
+        size: "Ấm và chén",
+        technique: "Tạo hình thủ công, phủ men rạn, nung nhiệt cao",
+        description:
+            "Bộ ấm chén mang bề mặt men rạn đặc trưng, tạo cảm giác cổ kính và mộc mạc. Phù hợp với không gian trà hoặc làm quà biếu.",
+        use:
+            "Thưởng trà, tiếp khách, trưng bày và quà tặng.",
+        image:
+            "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRqTjHmLxve9gZTwigiRXZm_VY3RcPht7_IgL5_YLOvPX-oAafI"
+    },
+
+    {
+        id: 12,
+        name: "Bộ Ấm Trà Gà Trống Men Nâu Xanh",
+        price: 2950000,
+        category: "am",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bộ ấm trà",
+        material: "Gốm Bát Tràng, men nâu và xanh",
+        size: "Ấm trà kèm chén",
+        technique: "Trang trí họa tiết gà trống, phủ men và nung",
+        description:
+            "Bộ trà sử dụng hình tượng gà trống làm điểm nhấn, kết hợp sắc nâu và xanh tạo vẻ ấm áp. Phù hợp cho không gian trà gia đình.",
+        use:
+            "Pha trà, tiếp khách, trưng bày và quà tặng.",
+        image:
+            "https://down-vn.img.susercontent.com/file/vn-11134207-820l4-mifiykrms9ag43"
+    },
+
+    {
+        id: 13,
+        name: "Đôi Lục Bình Hắc Kim Thuyền Hải Hành",
+        price: 6850000,
+        category: "binh",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Đôi lục bình cao cấp",
+        material: "Gốm Bát Tràng, men đen - ánh kim",
+        size: "Dòng bình lớn - đôi",
+        technique: "Tạo hình, đắp nổi họa tiết, xử lý men và nung",
+        description:
+            "Đôi lục bình tông đen ánh kim tạo cảm giác sang trọng, nổi bật với hình ảnh thuyền và cảnh biển trên thân bình.",
+        use:
+            "Phòng khách, sảnh lớn, văn phòng và quà biếu cao cấp.",
+        image:
+            "https://bizweb.dktcdn.net/100/659/338/products/2e9c6da5-bca0-4a06-97a3-0c85f3d74a57.jpg?v=1773291686963"
+    },
+
+    {
+        id: 14,
+        name: "Đôi Lục Bình Bạch Kim Thuyền Mã",
+        price: 7580000,
+        category: "binh",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Đôi lục bình nghệ thuật cao cấp",
+        material: "Gốm Bát Tràng, men trắng và điểm nhấn ánh kim",
+        size: "Dòng bình lớn - đôi",
+        technique: "Tạo hình thủ công, đắp nổi họa tiết, phối men",
+        description:
+            "Đôi lục bình nền trắng phối chi tiết vàng, tạo hình ảnh thuyền và ngựa với bố cục giàu tính trang trí. Phù hợp với không gian sang trọng.",
+        use:
+            "Biệt thự, phòng khách lớn, sảnh, văn phòng và quà tặng.",
+        image:
+            "https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/486496hTq/anh-mo-ta.png"
+    },
+
+    {
+        id: 15,
+        name: "Đĩa Nghệ Thuật Thuyền Buồm Vượt Sóng",
+        price: 4850000,
+        category: "bat",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Đĩa trang trí nghệ thuật",
+        material: "Gốm Bát Tràng, men màu",
+        size: "Đĩa lớn - dùng trưng bày",
+        technique: "Tạo hình, trang trí cảnh thuyền buồm, nung nhiệt cao",
+        description:
+            "Đĩa nghệ thuật tái hiện hình ảnh thuyền buồm trên biển. Thiết kế phù hợp với cách trưng bày theo chủ đề và tạo điểm nhấn cho không gian.",
+        use:
+            "Trang trí nội thất, quà tặng doanh nghiệp, quà tân gia.",
+        image:
+            "https://product.hstatic.net/200000258799/product/z6560994619592_1dd138feeafdadd8b79ef6d63e0a82b1_28308021f6864719bf8ebce77630607a_master.jpg"
+    },
+
+    {
+        id: 16,
+        name: "Bình Hoa Men Trắng Viền Vàng Kèm Cốc",
+        price: 3250000,
+        category: "binh",
+        origin: "Bát Tràng, Gia Lâm, Hà Nội",
+        type: "Bộ bình hoa và cốc trang trí",
+        material: "Sứ/gốm Bát Tràng, men trắng, điểm nhấn vàng",
+        size: "Bình cỡ vừa kèm phụ kiện",
+        technique: "Tạo hình, trang trí hoa, phối màu và nung",
+        description:
+            "Bộ sản phẩm có bình hoa nền trắng với họa tiết hoa và đường viền vàng, đi kèm các cốc đồng bộ. Tổng thể thanh lịch và phù hợp làm quà tặng.",
+        use:
+            "Trang trí bàn, phòng khách, phòng làm việc; quà tặng.",
+        image:
+            "https://neon.vn/image/cache/catalog/products/D39-2-1100x1100.jpg.webp"
     }
 
+];
 
-    /* =====================================================
-       XÓA CÁC PHẦN PHÂN LOẠI CŨ
-       
-       Nếu index.html của bạn còn:
-       - Danh mục
-       - Category
-       - Bộ lọc loại sản phẩm
-       
-       script sẽ ẩn chúng.
-       ===================================================== */
 
-    const categorySelectors = [
-        ".categories",
-        ".category-list",
-        ".category-filter",
-        ".product-categories",
-        "#categories",
-        "#categoryFilter",
-        "#productCategories",
-        "[data-category]",
-        "[data-categories]"
-    ];
+/* =========================================================
+   2. GIỎ HÀNG
+   ========================================================= */
 
-    categorySelectors.forEach(selector => {
-        document.querySelectorAll(selector).forEach(element => {
-            element.style.display = "none";
+let cart = JSON.parse(
+    localStorage.getItem("chamHonVietCart") || "[]"
+);
+
+
+/* =========================================================
+   3. SỐ LƯỢNG TẠM TRÊN CARD SẢN PHẨM
+   ========================================================= */
+
+const productQuantities = {};
+
+
+/* =========================================================
+   4. HÀM TIỆN ÍCH
+   ========================================================= */
+
+function formatPrice(price) {
+
+    return new Intl.NumberFormat("vi-VN")
+        .format(price) + " đ";
+
+}
+
+
+function getProduct(productId) {
+
+    return products.find(
+        product => product.id === Number(productId)
+    );
+
+}
+
+
+function saveCart() {
+
+    localStorage.setItem(
+        "chamHonVietCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+function escapeHtml(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   5. SỐ LƯỢNG TRÊN CARD
+   ========================================================= */
+
+function getProductQuantity(productId) {
+
+    const id = Number(productId);
+
+    if (!productQuantities[id]) {
+
+        productQuantities[id] = 1;
+
+    }
+
+    return productQuantities[id];
+
+}
+
+
+function changeProductCardQuantity(
+    productId,
+    change
+) {
+
+    const id = Number(productId);
+
+    let quantity =
+        getProductQuantity(id) + Number(change);
+
+    if (quantity < 1) {
+        quantity = 1;
+    }
+
+    if (quantity > 99) {
+        quantity = 99;
+    }
+
+    productQuantities[id] = quantity;
+
+    document
+        .querySelectorAll(
+            `.product-qty-value[data-product-id="${id}"]`
+        )
+        .forEach(element => {
+
+            element.textContent = quantity;
+
         });
-    });
 
+}
 
-    /* =====================================================
-       TÌM VÙNG HIỂN THỊ SẢN PHẨM
-       ===================================================== */
 
-    let productGrid =
-        document.querySelector("#productGrid") ||
-        document.querySelector(".product-grid") ||
-        document.querySelector("#products");
+function addProductWithQuantity(productId) {
 
+    const quantity =
+        getProductQuantity(productId);
 
-    /*
-       Nếu HTML chưa có productGrid
-       thì tự tạo luôn.
-    */
+    addToCart(
+        productId,
+        quantity
+    );
 
-    if (!productGrid) {
+}
 
-        productGrid = document.createElement("div");
 
-        productGrid.id = "productGrid";
+/* =========================================================
+   6. CARD SẢN PHẨM
+   ---------------------------------------------------------
+   Không còn phân loại trên hình ảnh.
+   Tên sản phẩm nằm ngay dưới hình.
+   ========================================================= */
 
-        document.body.appendChild(productGrid);
-    }
+function createProductCard(product) {
 
+    const quantity =
+        getProductQuantity(product.id);
 
-    /* =====================================================
-       ÉP PRODUCT GRID FULL MÀN HÌNH
-       ===================================================== */
+    return `
 
-    productGrid.style.width = "100%";
-    productGrid.style.maxWidth = "none";
-    productGrid.style.margin = "0";
-    productGrid.style.padding = "30px 4vw";
-    productGrid.style.boxSizing = "border-box";
+        <article
+            class="product-card chv-product-card"
+            data-category="${product.category}"
+            data-product-id="${product.id}"
+            onclick="showProductDetail(${product.id})"
+        >
 
-    productGrid.style.display = "grid";
-
-    productGrid.style.gridTemplateColumns =
-        "repeat(4, minmax(0, 1fr))";
-
-    productGrid.style.gap = "28px";
-
-    productGrid.style.alignItems = "start";
-
-
-    /* =====================================================
-       HIỂN THỊ SẢN PHẨM
-       ===================================================== */
-
-    function renderProducts() {
-
-        productGrid.innerHTML = "";
-
-        products.forEach(function (product) {
-
-            const item =
-                cart.find(
-                    cartItem =>
-                        cartItem.id === product.id
-                );
-
-            const quantity =
-                item ? item.quantity : 0;
-
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "bat-trang-product-card";
-
-
-            card.innerHTML = `
-
-                <div
-                    class="bat-trang-product-image"
-                    onclick="openProduct(${product.id})"
-                >
-
-                    <img
-                        src="${product.image}"
-                        alt="${product.name}"
-                        loading="lazy"
-                    >
-
-                </div>
-
-
-                <div class="bat-trang-product-info">
-
-                    <h3
-                        onclick="openProduct(${product.id})"
-                    >
-                        ${product.name}
-                    </h3>
-
-
-                    <div class="bat-trang-price">
-                        ${formatPrice(product.price)}
-                    </div>
-
-
-                    <div class="bat-trang-buy-row">
-
-                        <div class="bat-trang-quantity">
-
-                            <button
-                                onclick="changeQuantity(${product.id}, -1)"
-                            >
-                                −
-                            </button>
-
-                            <span>
-                                ${quantity}
-                            </span>
-
-                            <button
-                                onclick="changeQuantity(${product.id}, 1)"
-                            >
-                                +
-                            </button>
-
-                        </div>
-
-
-                        <button
-                            class="bat-trang-add"
-                            onclick="addToCart(${product.id})"
-                        >
-                            Thêm giỏ hàng
-                        </button>
-
-                    </div>
-
-
-                    <button
-                        class="bat-trang-detail"
-                        onclick="openProduct(${product.id})"
-                    >
-                        Xem chi tiết
-                    </button>
-
-                </div>
-            `;
-
-
-            productGrid.appendChild(card);
-
-        });
-
-    }
-
-
-    /* =====================================================
-       THAY ĐỔI SỐ LƯỢNG
-       ===================================================== */
-
-    window.changeQuantity =
-        function (productId, change) {
-
-            const existing =
-                cart.find(
-                    item =>
-                        item.id === productId
-                );
-
-
-            if (!existing) {
-
-                if (change > 0) {
-
-                    cart.push({
-                        id: productId,
-                        quantity: 1
-                    });
-
-                }
-
-            } else {
-
-                existing.quantity += change;
-
-                if (existing.quantity <= 0) {
-
-                    cart =
-                        cart.filter(
-                            item =>
-                                item.id !== productId
-                        );
-
-                }
-
-            }
-
-
-            saveCart();
-            renderProducts();
-            renderCart();
-
-        };
-
-
-    /* =====================================================
-       THÊM GIỎ HÀNG
-       ===================================================== */
-
-    window.addToCart =
-        function (productId) {
-
-            const existing =
-                cart.find(
-                    item =>
-                        item.id === productId
-                );
-
-
-            if (existing) {
-
-                existing.quantity++;
-
-            } else {
-
-                cart.push({
-                    id: productId,
-                    quantity: 1
-                });
-
-            }
-
-
-            saveCart();
-            renderProducts();
-            renderCart();
-
-            showNotice(
-                "Đã thêm sản phẩm vào giỏ hàng."
-            );
-
-        };
-
-
-    /* =====================================================
-       LƯU GIỎ
-       ===================================================== */
-
-    function saveCart() {
-
-        localStorage.setItem(
-            "batTrangCart",
-            JSON.stringify(cart)
-        );
-
-    }
-
-
-    /* =====================================================
-       XÓA GIỎ
-       ===================================================== */
-
-    window.removeFromCart =
-        function (productId) {
-
-            cart =
-                cart.filter(
-                    item =>
-                        item.id !== productId
-                );
-
-            saveCart();
-
-            renderProducts();
-            renderCart();
-
-        };
-
-
-    /* =====================================================
-       HIỂN THỊ GIỎ HÀNG
-       ===================================================== */
-
-    function renderCart() {
-
-        const cartItems =
-            document.querySelector("#cartItems");
-
-        const cartCount =
-            document.querySelector("#cartCount");
-
-        const cartTotal =
-            document.querySelector("#cartTotal");
-
-
-        const totalQuantity =
-            cart.reduce(
-                (sum, item) =>
-                    sum + item.quantity,
-                0
-            );
-
-
-        const totalPrice =
-            cart.reduce(
-                (sum, item) => {
-
-                    const product =
-                        products.find(
-                            p =>
-                                p.id === item.id
-                        );
-
-                    if (!product) {
-                        return sum;
-                    }
-
-                    return (
-                        sum +
-                        product.price *
-                        item.quantity
-                    );
-
-                },
-                0
-            );
-
-
-        if (cartCount) {
-
-            cartCount.textContent =
-                totalQuantity;
-
-        }
-
-
-        if (cartTotal) {
-
-            cartTotal.textContent =
-                formatPrice(totalPrice);
-
-        }
-
-
-        if (!cartItems) {
-            return;
-        }
-
-
-        if (cart.length === 0) {
-
-            cartItems.innerHTML = `
-                <p class="empty-cart">
-                    Giỏ hàng đang trống.
-                </p>
-            `;
-
-            return;
-        }
-
-
-        cartItems.innerHTML = "";
-
-
-        cart.forEach(function (item) {
-
-            const product =
-                products.find(
-                    p =>
-                        p.id === item.id
-                );
-
-
-            if (!product) {
-                return;
-            }
-
-
-            const row =
-                document.createElement("div");
-
-            row.className =
-                "bat-trang-cart-item";
-
-
-            row.innerHTML = `
+            <div class="product-image chv-product-image">
 
                 <img
                     src="${product.image}"
-                    alt="${product.name}"
+                    alt="${escapeHtml(product.name)}"
+                    loading="lazy"
+                    onerror="
+                        this.style.display='none';
+                        this.parentElement.classList.add('image-error');
+                    "
                 >
 
-                <div>
+            </div>
 
-                    <strong>
-                        ${product.name}
+
+            <div class="product-info chv-product-info">
+
+                <h3 class="product-name">
+
+                    ${escapeHtml(product.name)}
+
+                </h3>
+
+
+                <p class="product-origin">
+
+                    ${escapeHtml(product.origin)}
+
+                </p>
+
+
+                <div class="product-purchase-row">
+
+                    <strong class="product-price">
+
+                        ${formatPrice(product.price)}
+
                     </strong>
 
-                    <p>
-                        ${formatPrice(product.price)}
-                    </p>
 
-                    <div>
+                    <div
+                        class="product-quantity-control"
+                        onclick="event.stopPropagation()"
+                    >
 
                         <button
-                            onclick="changeQuantity(${product.id}, -1)"
+                            type="button"
+                            aria-label="Giảm số lượng"
+                            onclick="
+                                event.stopPropagation();
+                                changeProductCardQuantity(
+                                    ${product.id},
+                                    -1
+                                );
+                            "
                         >
                             −
                         </button>
 
-                        <span>
-                            ${item.quantity}
+
+                        <span
+                            class="product-qty-value"
+                            data-product-id="${product.id}"
+                        >
+                            ${quantity}
                         </span>
 
+
                         <button
-                            onclick="changeQuantity(${product.id}, 1)"
+                            type="button"
+                            aria-label="Tăng số lượng"
+                            onclick="
+                                event.stopPropagation();
+                                changeProductCardQuantity(
+                                    ${product.id},
+                                    1
+                                );
+                            "
                         >
                             +
                         </button>
 
                     </div>
 
-                    <button
-                        onclick="removeFromCart(${product.id})"
-                    >
-                        Xóa
-                    </button>
-
                 </div>
-            `;
 
 
-            cartItems.appendChild(row);
+                <button
+                    type="button"
+                    class="add-cart-btn chv-add-cart-btn"
+                    onclick="
+                        event.stopPropagation();
+                        addProductWithQuantity(${product.id});
+                    "
+                >
 
-        });
+                    Thêm vào giỏ
+
+                </button>
+
+            </div>
+
+        </article>
+
+    `;
+}
+
+
+/* =========================================================
+   7. LẤY CÁC KHU VỰC SẢN PHẨM
+   ========================================================= */
+
+function getProductGrids() {
+
+    return [
+
+        document.getElementById("productGrid"),
+
+        document.getElementById("productsGrid"),
+
+        document.getElementById("product-list"),
+
+        document.querySelector(".products-grid"),
+
+        document.querySelector(".product-grid")
+
+    ].filter(Boolean);
+
+}
+
+
+/* =========================================================
+   8. HIỂN THỊ SẢN PHẨM
+   ---------------------------------------------------------
+   Sản phẩm luôn hiển thị lần lượt.
+   Không hiển thị phân loại.
+   ========================================================= */
+
+function renderProducts(category = "all") {
+
+    const grids =
+        getProductGrids();
+
+    if (!grids.length) {
+        return;
+    }
+
+
+    let filteredProducts = products;
+
+
+    /*
+       Vẫn hỗ trợ filter cũ nếu HTML đang có,
+       nhưng mặc định hiển thị toàn bộ sản phẩm.
+    */
+
+    if (
+        category &&
+        category !== "all"
+    ) {
+
+        filteredProducts =
+            products.filter(
+                product =>
+                    product.category === category
+            );
 
     }
 
 
-    /* =====================================================
-       CHI TIẾT SẢN PHẨM
-       ===================================================== */
-
-    window.openProduct =
-        function (productId) {
-
-            const product =
-                products.find(
-                    p =>
-                        p.id === productId
-                );
+    const html =
+        filteredProducts
+            .map(createProductCard)
+            .join("");
 
 
-            if (!product) {
-                return;
-            }
+    grids.forEach(grid => {
+
+        grid.innerHTML = html;
+
+    });
 
 
-            let modal =
-                document.querySelector(
-                    "#batTrangProductModal"
-                );
+    animateProducts();
+
+}
 
 
-            if (!modal) {
+/* =========================================================
+   9. HIỆU ỨNG SẢN PHẨM KHI HIỂN THỊ
+   ========================================================= */
 
-                modal =
-                    document.createElement("div");
+function animateProducts() {
 
-                modal.id =
-                    "batTrangProductModal";
+    const cards =
+        document.querySelectorAll(
+            ".chv-product-card"
+        );
 
-                document.body.appendChild(
-                    modal
-                );
+    cards.forEach(
+        (card, index) => {
 
-            }
+            card.style.setProperty(
+                "--product-delay",
+                `${index * 70}ms`
+            );
 
+            card.classList.add(
+                "chv-product-reveal"
+            );
 
-            modal.innerHTML = `
+        }
+    );
 
-                <div class="bat-trang-modal-overlay">
-
-                    <div class="bat-trang-modal">
-
-                        <button
-                            class="bat-trang-modal-close"
-                            onclick="closeProduct()"
-                        >
-                            ×
-                        </button>
-
-
-                        <div class="bat-trang-modal-image">
-
-                            <img
-                                src="${product.image}"
-                                alt="${product.name}"
-                            >
-
-                        </div>
+}
 
 
-                        <div class="bat-trang-modal-info">
+/* =========================================================
+   10. LỌC
+   ---------------------------------------------------------
+   Nếu bạn bỏ nút phân loại trong HTML thì phần này
+   không ảnh hưởng đến website.
+   ========================================================= */
 
-                            <h2>
-                                ${product.name}
-                            </h2>
+function filterProducts(
+    category = "all",
+    button = null
+) {
 
-
-                            <div class="bat-trang-modal-price">
-                                ${formatPrice(product.price)}
-                            </div>
-
-
-                            <div class="bat-trang-description">
-
-                                <p>
-                                    <b>Xuất xứ:</b>
-                                    ${product.origin}
-                                </p>
-
-                                <p>
-                                    <b>Chất liệu:</b>
-                                    ${product.material}
-                                </p>
-
-                                <p>
-                                    <b>Kích thước:</b>
-                                    ${product.size}
-                                </p>
-
-                                <p>
-                                    <b>Kỹ thuật:</b>
-                                    ${product.technique}
-                                </p>
-
-                                <p>
-                                    <b>Thông tin:</b>
-                                    ${product.description}
-                                </p>
-
-                            </div>
+    renderProducts(category);
 
 
-                            <button
-                                class="bat-trang-add modal-add"
-                                onclick="addToCart(${product.id}); closeProduct();"
-                            >
-                                Thêm vào giỏ hàng
-                            </button>
+    document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn => {
 
-                        </div>
+            btn.classList.remove("active");
 
-                    </div>
+        });
+
+
+    if (button) {
+
+        button.classList.add("active");
+
+    }
+
+}
+
+
+/* =========================================================
+   11. TÌM KIẾM
+   ========================================================= */
+
+function searchProducts(keyword) {
+
+    const query =
+        String(keyword || "")
+            .trim()
+            .toLowerCase();
+
+
+    const grids =
+        getProductGrids();
+
+    if (!grids.length) {
+        return;
+    }
+
+
+    if (!query) {
+
+        renderProducts("all");
+
+        return;
+
+    }
+
+
+    const results =
+        products.filter(product => {
+
+            const searchText = [
+
+                product.name,
+
+                product.origin,
+
+                product.type,
+
+                product.material,
+
+                product.description,
+
+                product.use
+
+            ]
+                .join(" ")
+                .toLowerCase();
+
+
+            return searchText.includes(query);
+
+        });
+
+
+    grids.forEach(grid => {
+
+        if (!results.length) {
+
+            grid.innerHTML = `
+
+                <div class="empty-products chv-empty-products">
+
+                    <h3>
+                        Không tìm thấy sản phẩm
+                    </h3>
+
+                    <p>
+                        Hãy thử tìm kiếm với từ khóa khác.
+                    </p>
 
                 </div>
+
             `;
 
-
-            modal.style.display = "block";
-
-            document.body.style.overflow =
-                "hidden";
-
-        };
-
-
-    /* =====================================================
-       ĐÓNG CHI TIẾT
-       ===================================================== */
-
-    window.closeProduct =
-        function () {
-
-            const modal =
-                document.querySelector(
-                    "#batTrangProductModal"
-                );
-
-
-            if (modal) {
-
-                modal.style.display =
-                    "none";
-
-            }
-
-
-            document.body.style.overflow =
-                "";
-
-        };
-
-
-    /* =====================================================
-       THÔNG BÁO
-       ===================================================== */
-
-    function showNotice(message) {
-
-        let notice =
-            document.querySelector(
-                "#batTrangNotice"
-            );
-
-
-        if (!notice) {
-
-            notice =
-                document.createElement("div");
-
-            notice.id =
-                "batTrangNotice";
-
-
-            document.body.appendChild(
-                notice
-            );
+            return;
 
         }
 
 
-        notice.textContent =
-            message;
+        grid.innerHTML =
+            results
+                .map(createProductCard)
+                .join("");
 
 
-        notice.classList.add(
-            "show"
+        animateProducts();
+
+    });
+
+}
+
+
+/* =========================================================
+   12. POPUP CHI TIẾT SẢN PHẨM
+   ========================================================= */
+
+function createProductModal() {
+
+    let modal =
+        document.getElementById(
+            "productDetailModal"
         );
 
 
-        setTimeout(function () {
-
-            notice.classList.remove(
-                "show"
-            );
-
-        }, 2500);
-
+    if (modal) {
+        return modal;
     }
 
 
-    /* =====================================================
-       CSS
-       ===================================================== */
+    modal =
+        document.createElement("div");
+
+
+    modal.id =
+        "productDetailModal";
+
+
+    modal.className =
+        "product-detail-modal";
+
+
+    modal.innerHTML = `
+
+        <div
+            class="product-detail-overlay"
+            onclick="closeProductDetail()"
+        ></div>
+
+
+        <div
+            class="product-detail-box"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <button
+                type="button"
+                class="product-detail-close"
+                onclick="closeProductDetail()"
+                aria-label="Đóng"
+            >
+                ×
+            </button>
+
+
+            <div id="productDetailContent"></div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(modal);
+
+
+    addProductModalCSS();
+
+
+    return modal;
+
+}
+
+
+/* =========================================================
+   13. CSS TỰ ĐỘNG CHO WEBSITE
+   ---------------------------------------------------------
+   Không thay đổi font.
+   font: inherit để sử dụng font hiện tại của website.
+   ========================================================= */
+
+function addProductModalCSS() {
+
+    if (
+        document.getElementById(
+            "chamHonVietAutoStyle"
+        )
+    ) {
+        return;
+    }
+
 
     const style =
         document.createElement("style");
 
 
+    style.id =
+        "chamHonVietAutoStyle";
+
+
     style.textContent = `
 
         /* =========================================
-           ÉP TOÀN TRANG KHÔNG BÓ SẢN PHẨM
+           HIỆU ỨNG MỞ TRANG
            ========================================= */
 
-        html,
-        body {
-            width: 100%;
-            max-width: 100%;
-            margin: 0;
-            padding: 0;
-        }
+        body.chv-page-loading::before {
 
-
-        /* =========================================
-           KHỐI SẢN PHẨM FULL WIDTH
-           ========================================= */
-
-        #productGrid,
-        .product-grid,
-        #products {
-
-            width: 100% !important;
-
-            max-width: none !important;
-
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-
-            padding: 35px 4vw !important;
-
-            box-sizing: border-box;
-
-            display: grid !important;
-
-            grid-template-columns:
-                repeat(4, minmax(0, 1fr)) !important;
-
-            gap: 28px !important;
-
-            align-items: start;
-
-        }
-
-
-        /* =========================================
-           CARD
-           ========================================= */
-
-        .bat-trang-product-card {
-
-            width: 100%;
-
-            min-width: 0;
-
-            box-sizing: border-box;
-
-            background: #ffffff;
-
-            border: 1px solid #e3d4c5;
-
-            border-radius: 16px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 5px 18px
-                rgba(78, 48, 25, .10);
-
-            transition:
-                transform .25s ease,
-                box-shadow .25s ease;
-
-        }
-
-
-        .bat-trang-product-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            box-shadow:
-                0 12px 30px
-                rgba(78, 48, 25, .16);
-
-        }
-
-
-        /* =========================================
-           HÌNH FULL KHUNG
-           ========================================= */
-
-        .bat-trang-product-image {
-
-            width: 100%;
-
-            height: 330px;
-
-            overflow: hidden;
-
-            background: #eee6dc;
-
-            cursor: pointer;
-
-        }
-
-
-        .bat-trang-product-image img {
-
-            width: 100%;
-
-            height: 100%;
-
-            display: block;
-
-            object-fit: cover;
-
-            transition:
-                transform .35s ease;
-
-        }
-
-
-        .bat-trang-product-card:hover
-        .bat-trang-product-image img {
-
-            transform:
-                scale(1.05);
-
-        }
-
-
-        /* =========================================
-           THÔNG TIN BÊN DƯỚI HÌNH
-           ========================================= */
-
-        .bat-trang-product-info {
-
-            padding: 16px;
-
-            box-sizing: border-box;
-
-        }
-
-
-        .bat-trang-product-info h3 {
-
-            margin: 0 0 9px;
-
-            color: #5c351b;
-
-            font-family: inherit;
-
-            font-size: 18px;
-
-            line-height: 1.4;
-
-            cursor: pointer;
-
-        }
-
-
-        .bat-trang-product-info h3:hover {
-
-            color: #9a5b25;
-
-        }
-
-
-        .bat-trang-price {
-
-            color: #a35f25;
-
-            font-size: 19px;
-
-            font-weight: 700;
-
-            margin-bottom: 14px;
-
-        }
-
-
-        /* =========================================
-           SỐ LƯỢNG + GIỎ
-           ========================================= */
-
-        .bat-trang-buy-row {
-
-            display: flex;
-
-            width: 100%;
-
-            gap: 8px;
-
-            align-items: stretch;
-
-        }
-
-
-        .bat-trang-quantity {
-
-            height: 42px;
-
-            display: flex;
-
-            align-items: center;
-
-            border: 1px solid #d6c4b2;
-
-            border-radius: 9px;
-
-            overflow: hidden;
-
-            flex-shrink: 0;
-
-        }
-
-
-        .bat-trang-quantity button {
-
-            width: 32px;
-
-            height: 100%;
-
-            border: 0;
-
-            background: #faf7f3;
-
-            color: #603a20;
-
-            font-size: 20px;
-
-            cursor: pointer;
-
-        }
-
-
-        .bat-trang-quantity span {
-
-            width: 28px;
-
-            text-align: center;
-
-            color: #5c351b;
-
-            font-weight: 600;
-
-        }
-
-
-        .bat-trang-add {
-
-            flex: 1;
-
-            min-width: 0;
-
-            height: 42px;
-
-            border: 0;
-
-            border-radius: 9px;
-
-            background: #6b4423;
-
-            color: white;
-
-            padding: 0 10px;
-
-            font-family: inherit;
-
-            font-weight: 600;
-
-            cursor: pointer;
-
-        }
-
-
-        .bat-trang-add:hover {
-
-            background: #4d2e17;
-
-        }
-
-
-        /* =========================================
-           XEM CHI TIẾT
-           ========================================= */
-
-        .bat-trang-detail {
-
-            width: 100%;
-
-            height: 40px;
-
-            margin-top: 9px;
-
-            border: 1px solid #c9b29b;
-
-            border-radius: 9px;
-
-            background: white;
-
-            color: #6b4423;
-
-            font-family: inherit;
-
-            cursor: pointer;
-
-        }
-
-
-        .bat-trang-detail:hover {
-
-            background: #f6eee7;
-
-        }
-
-
-        /* =========================================
-           MODAL
-           ========================================= */
-
-        #batTrangProductModal {
+            content: "";
 
             position: fixed;
 
@@ -1239,390 +917,1127 @@ document.addEventListener("DOMContentLoaded", function () {
 
             z-index: 99999;
 
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7efe5,
+                    #fffdf9,
+                    #ead9c8
+                );
+
+            pointer-events: none;
+
+            animation:
+                chvPageCurtain 1.25s
+                cubic-bezier(.77,0,.18,1)
+                forwards;
+
         }
 
 
-        .bat-trang-modal-overlay {
+        body.chv-page-loading::after {
+
+            content: "CHẠM VÀO HỒN VIỆT";
 
             position: fixed;
 
-            inset: 0;
+            top: 50%;
 
-            background:
-                rgba(30, 20, 12, .70);
+            left: 50%;
 
-            display: flex;
+            transform:
+                translate(-50%, -50%);
 
-            align-items: center;
+            z-index: 100000;
 
-            justify-content: center;
+            color: #654735;
 
-            padding: 25px;
+            font: inherit;
 
-            box-sizing: border-box;
+            font-weight: 700;
+
+            font-size: 20px;
+
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+
+            opacity: 1;
+
+            animation:
+                chvIntroText 1.15s
+                ease forwards;
 
         }
 
 
-        .bat-trang-modal {
+        @keyframes chvPageCurtain {
+
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            70% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+
+        }
+
+
+        @keyframes chvIntroText {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(-50%, -40%)
+                    scale(.94);
+
+            }
+
+            25% {
+
+                opacity: 1;
+
+            }
+
+            70% {
+
+                opacity: 1;
+
+            }
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translate(-50%, -65%)
+                    scale(1.04);
+
+            }
+
+        }
+
+
+        /* =========================================
+           CARD SẢN PHẨM
+           ========================================= */
+
+        .chv-product-card {
+
+            overflow: hidden;
+
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
+
+        }
+
+
+        .chv-product-card:hover {
+
+            transform:
+                translateY(-7px);
+
+            box-shadow:
+                0 18px 45px
+                rgba(87, 60, 40, .14);
+
+        }
+
+
+        .chv-product-image {
 
             position: relative;
 
-            width: min(950px, 100%);
+            overflow: hidden;
 
-            max-height: 90vh;
+        }
 
-            overflow-y: auto;
 
-            background: white;
+        .chv-product-image img {
 
-            border-radius: 18px;
+            transition:
+                transform .65s ease;
 
-            padding: 24px;
+        }
 
-            box-sizing: border-box;
 
-            display: grid;
+        .chv-product-card:hover
+        .chv-product-image img {
+
+            transform:
+                scale(1.045);
+
+        }
+
+
+        /* =========================================
+           TÊN SẢN PHẨM
+           ========================================= */
+
+        .chv-product-info {
+
+            position: relative;
+
+        }
+
+
+        .chv-product-info
+        .product-name {
+
+            display: block;
+
+            margin:
+                16px 0 8px;
+
+            color:
+                #4d3829;
+
+            font: inherit;
+
+            font-size:
+                18px;
+
+            font-weight:
+                700;
+
+            line-height:
+                1.45;
+
+        }
+
+
+        /* =========================================
+           GIÁ + CỘNG TRỪ
+           ========================================= */
+
+        .product-purchase-row {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                10px;
+
+            margin-top:
+                15px;
+
+        }
+
+
+        .product-price {
+
+            color:
+                #986943;
+
+            font-size:
+                18px;
+
+            font-weight:
+                800;
+
+            white-space:
+                nowrap;
+
+        }
+
+
+        .product-quantity-control {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            border:
+                1px solid #d8c6b5;
+
+            border-radius:
+                10px;
+
+            overflow:
+                hidden;
+
+            background:
+                #fffaf4;
+
+        }
+
+
+        .product-quantity-control button {
+
+            width:
+                31px;
+
+            height:
+                31px;
+
+            border:
+                none;
+
+            background:
+                transparent;
+
+            color:
+                #5d4433;
+
+            font: inherit;
+
+            font-size:
+                18px;
+
+            font-weight:
+                700;
+
+            cursor:
+                pointer;
+
+            transition:
+                background .2s ease;
+
+        }
+
+
+        .product-quantity-control button:hover {
+
+            background:
+                #eadbca;
+
+        }
+
+
+        .product-qty-value {
+
+            min-width:
+                27px;
+
+            text-align:
+                center;
+
+            color:
+                #4d3829;
+
+            font: inherit;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .chv-add-cart-btn {
+
+            width:
+                100%;
+
+            margin-top:
+                13px;
+
+            font: inherit;
+
+            transition:
+                transform .2s ease,
+                background .2s ease;
+
+        }
+
+
+        .chv-add-cart-btn:hover {
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        /* =========================================
+           HIỆU ỨNG TỪNG SẢN PHẨM
+           ========================================= */
+
+        .chv-product-reveal {
+
+            animation:
+                chvProductReveal .65s
+                cubic-bezier(.22,.61,.36,1)
+                both;
+
+            animation-delay:
+                var(--product-delay, 0ms);
+
+        }
+
+
+        @keyframes chvProductReveal {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translateY(28px)
+                    scale(.97);
+
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* =========================================
+           FORM TƯ VẤN KHÁCH HÀNG
+           ========================================= */
+
+        #consultationForm {
+
+            position: relative;
+
+            padding:
+                30px;
+
+            background:
+                #fffdf9;
+
+            border:
+                1px solid #dfd0c0;
+
+            border-radius:
+                24px;
+
+            box-shadow:
+                0 18px 55px
+                rgba(76, 53, 37, .10);
+
+        }
+
+
+        #consultationForm::before {
+
+            content:
+                "Thông tin khách hàng";
+
+            display:
+                block;
+
+            margin-bottom:
+                20px;
+
+            color:
+                #5c4130;
+
+            font: inherit;
+
+            font-size:
+                20px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        #consultationForm
+        .form-group,
+
+        #consultationForm
+        .form-field,
+
+        #consultationForm
+        .field-group {
+
+            padding:
+                15px;
+
+            margin-bottom:
+                14px;
+
+            background:
+                #fbf7f1;
+
+            border:
+                1px solid #e5d8ca;
+
+            border-radius:
+                14px;
+
+        }
+
+
+        #consultationForm
+        label {
+
+            display:
+                block;
+
+            margin-bottom:
+                7px;
+
+            color:
+                #5b4637;
+
+            font: inherit;
+
+            font-weight:
+                600;
+
+        }
+
+
+        #consultationForm
+        input {
+
+            width:
+                100%;
+
+            box-sizing:
+                border-box;
+
+            padding:
+                12px 14px;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ddcdbd;
+
+            border-radius:
+                10px;
+
+            color:
+                #4d3829;
+
+            font: inherit;
+
+            outline:
+                none;
+
+        }
+
+
+        #consultationForm
+        input:focus {
+
+            border-color:
+                #a47b5a;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(164,123,90,.10);
+
+        }
+
+
+        /* =========================================
+           FORM ĐẶT HÀNG
+           ========================================= */
+
+        #orderForm {
+
+            position: relative;
+
+            padding:
+                30px;
+
+            background:
+                #fffdf9;
+
+            border:
+                1px solid #dfd0c0;
+
+            border-radius:
+                24px;
+
+            box-shadow:
+                0 18px 55px
+                rgba(76, 53, 37, .10);
+
+        }
+
+
+        #orderForm::before {
+
+            content:
+                "Thông tin đặt hàng";
+
+            display:
+                block;
+
+            margin-bottom:
+                20px;
+
+            color:
+                #5c4130;
+
+            font: inherit;
+
+            font-size:
+                20px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        #orderForm
+        .form-group,
+
+        #orderForm
+        .form-field,
+
+        #orderForm
+        .field-group {
+
+            padding:
+                15px;
+
+            margin-bottom:
+                14px;
+
+            background:
+                #fbf7f1;
+
+            border:
+                1px solid #e5d8ca;
+
+            border-radius:
+                14px;
+
+        }
+
+
+        #orderForm
+        label {
+
+            display:
+                block;
+
+            margin-bottom:
+                7px;
+
+            color:
+                #5b4637;
+
+            font: inherit;
+
+            font-weight:
+                600;
+
+        }
+
+
+        #orderForm
+        input,
+
+        #orderForm
+        select,
+
+        #orderForm
+        textarea {
+
+            width:
+                100%;
+
+            box-sizing:
+                border-box;
+
+            padding:
+                12px 14px;
+
+            background:
+                #ffffff;
+
+            border:
+                1px solid #ddcdbd;
+
+            border-radius:
+                10px;
+
+            color:
+                #4d3829;
+
+            font: inherit;
+
+            outline:
+                none;
+
+        }
+
+
+        #orderForm
+        textarea {
+
+            min-height:
+                100px;
+
+            resize:
+                vertical;
+
+        }
+
+
+        #orderForm
+        input:focus,
+
+        #orderForm
+        select:focus,
+
+        #orderForm
+        textarea:focus {
+
+            border-color:
+                #a47b5a;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(164,123,90,.10);
+
+        }
+
+
+        /* =========================================
+           POPUP CHI TIẾT
+           ========================================= */
+
+        .product-detail-modal {
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                9999;
+
+            display:
+                none;
+
+        }
+
+
+        .product-detail-modal.show {
+
+            display:
+                block;
+
+        }
+
+
+        .product-detail-overlay {
+
+            position:
+                absolute;
+
+            inset:
+                0;
+
+            background:
+                rgba(52,37,26,.68);
+
+            backdrop-filter:
+                blur(5px);
+
+        }
+
+
+        .product-detail-box {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            width:
+                min(1000px, calc(100% - 30px));
+
+            max-height:
+                calc(100vh - 40px);
+
+            overflow-y:
+                auto;
+
+            margin:
+                20px auto;
+
+            background:
+                #fffdf9;
+
+            border-radius:
+                22px;
+
+            box-shadow:
+                0 25px 80px
+                rgba(0,0,0,.25);
+
+        }
+
+
+        .product-detail-close {
+
+            position:
+                absolute;
+
+            top:
+                15px;
+
+            right:
+                15px;
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border:
+                none;
+
+            border-radius:
+                50%;
+
+            background:
+                #eadfd3;
+
+            color:
+                #4e392b;
+
+            font: inherit;
+
+            font-size:
+                28px;
+
+            cursor:
+                pointer;
+
+            z-index:
+                5;
+
+        }
+
+
+        .product-detail-close:hover {
+
+            background:
+                #d9c8b7;
+
+        }
+
+
+        .detail-layout {
+
+            display:
+                grid;
 
             grid-template-columns:
                 1fr 1fr;
 
-            gap: 25px;
+            gap:
+                32px;
+
+            padding:
+                35px;
 
         }
 
 
-        .bat-trang-modal-close {
+        .detail-image {
 
-            position: absolute;
+            min-height:
+                430px;
 
-            right: 15px;
+            display:
+                flex;
 
-            top: 12px;
+            align-items:
+                center;
 
-            width: 40px;
+            justify-content:
+                center;
 
-            height: 40px;
+            background:
+                #f5eee5;
 
-            border: 0;
+            border-radius:
+                15px;
 
-            border-radius: 50%;
-
-            background: #f1e8df;
-
-            color: #5c351b;
-
-            font-size: 27px;
-
-            cursor: pointer;
-
-            z-index: 5;
+            overflow:
+                hidden;
 
         }
 
 
-        .bat-trang-modal-image {
+        .detail-image img {
 
-            height: 450px;
+            width:
+                100%;
 
-            overflow: hidden;
+            height:
+                430px;
 
-            border-radius: 14px;
-
-            background: #eee6dc;
-
-        }
-
-
-        .bat-trang-modal-image img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
+            object-fit:
+                contain;
 
         }
 
 
-        .bat-trang-modal-info {
+        .detail-content h2 {
 
-            color: #6b4423;
+            margin:
+                10px 50px 10px 0;
 
-            padding: 15px;
+            color:
+                #4d3829;
 
-        }
+            font: inherit;
 
+            font-size:
+                29px;
 
-        .bat-trang-modal-info h2 {
+            font-weight:
+                700;
 
-            margin-top: 0;
-
-            color: #5c351b;
-
-            line-height: 1.4;
-
-        }
-
-
-        .bat-trang-modal-price {
-
-            color: #a35f25;
-
-            font-size: 25px;
-
-            font-weight: 700;
-
-            margin-bottom: 20px;
+            line-height:
+                1.3;
 
         }
 
 
-        .bat-trang-description {
+        .detail-price {
 
-            border: 1px solid #d8c6b4;
+            color:
+                #986943;
 
-            border-radius: 12px;
+            font-size:
+                25px;
 
-            padding: 15px;
-
-            line-height: 1.7;
-
-            color: #6b4423;
-
-        }
-
-
-        .bat-trang-description p {
-
-            margin: 0 0 9px;
+            font-weight:
+                800;
 
         }
 
 
-        .modal-add {
+        .detail-description {
 
-            width: 100%;
+            color:
+                #65564b;
 
-            margin-top: 18px;
+            line-height:
+                1.7;
+
+        }
+
+
+        .detail-list {
+
+            list-style:
+                none;
+
+            padding:
+                0;
+
+            margin:
+                20px 0;
+
+            border-top:
+                1px solid #e7ddd2;
+
+        }
+
+
+        .detail-list li {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                120px 1fr;
+
+            gap:
+                12px;
+
+            padding:
+                11px 0;
+
+            border-bottom:
+                1px solid #e7ddd2;
+
+            color:
+                #5b4a3d;
+
+            line-height:
+                1.5;
+
+        }
+
+
+        .detail-list strong {
+
+            color:
+                #4d3829;
+
+        }
+
+
+        .detail-actions {
+
+            display:
+                flex;
+
+            gap:
+                10px;
+
+            flex-wrap:
+                wrap;
+
+            margin-top:
+                20px;
+
+        }
+
+
+        .detail-actions button {
+
+            border:
+                none;
+
+            padding:
+                12px 20px;
+
+            border-radius:
+                10px;
+
+            cursor:
+                pointer;
+
+            font: inherit;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .detail-cart-btn {
+
+            background:
+                #8b6041;
+
+            color:
+                white;
+
+        }
+
+
+        .detail-close-btn {
+
+            background:
+                #eee3d6;
+
+            color:
+                #564437;
 
         }
 
 
         /* =========================================
-           THÔNG BÁO
+           TƯ VẤN + ĐẶT HÀNG TRÊN MOBILE
            ========================================= */
 
-        #batTrangNotice {
+        @media (max-width: 720px) {
 
-            position: fixed;
+            #consultationForm,
 
-            right: 25px;
+            #orderForm {
 
-            bottom: 25px;
+                padding:
+                    20px;
 
-            z-index: 100000;
+                border-radius:
+                    18px;
 
-            background: #6b4423;
-
-            color: white;
-
-            padding: 14px 20px;
-
-            border-radius: 10px;
-
-            opacity: 0;
-
-            transform:
-                translateY(15px);
-
-            pointer-events: none;
-
-            transition:
-                all .3s ease;
-
-        }
+            }
 
 
-        #batTrangNotice.show {
+            .product-purchase-row {
 
-            opacity: 1;
+                align-items:
+                    flex-start;
 
-            transform:
-                translateY(0);
+                flex-direction:
+                    column;
 
-        }
+            }
 
 
-        /* =========================================
-           DESKTOP RẤT RỘNG
-           ========================================= */
-
-        @media (min-width: 1600px) {
-
-            #productGrid,
-            .product-grid,
-            #products {
+            .detail-layout {
 
                 grid-template-columns:
-                    repeat(5, minmax(0, 1fr))
-                    !important;
+                    1fr;
 
-                padding-left: 3vw !important;
-                padding-right: 3vw !important;
+                padding:
+                    22px;
 
             }
 
-        }
+
+            .detail-image {
+
+                min-height:
+                    300px;
+
+            }
 
 
-        /* =========================================
-           TABLET
-           ========================================= */
+            .detail-image img {
 
-        @media (max-width: 1100px) {
+                height:
+                    300px;
 
-            #productGrid,
-            .product-grid,
-            #products {
+            }
+
+
+            .detail-content h2 {
+
+                font-size:
+                    24px;
+
+            }
+
+
+            .detail-list li {
 
                 grid-template-columns:
-                    repeat(3, minmax(0, 1fr))
-                    !important;
+                    1fr;
 
-            }
-
-        }
-
-
-        /* =========================================
-           TABLET NHỎ
-           ========================================= */
-
-        @media (max-width: 750px) {
-
-            #productGrid,
-            .product-grid,
-            #products {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr))
-                    !important;
-
-                gap: 15px !important;
-
-                padding: 20px 15px !important;
-
-            }
-
-
-            .bat-trang-product-image {
-
-                height: 260px;
-
-            }
-
-
-            .bat-trang-product-info {
-
-                padding: 12px;
-
-            }
-
-
-            .bat-trang-product-info h3 {
-
-                font-size: 16px;
-
-            }
-
-
-            .bat-trang-buy-row {
-
-                flex-direction: column;
-
-            }
-
-
-            .bat-trang-quantity {
-
-                width: 100%;
-
-                justify-content: center;
-
-            }
-
-
-            .bat-trang-add {
-
-                width: 100%;
-
-            }
-
-
-            .bat-trang-modal {
-
-                grid-template-columns: 1fr;
-
-                padding: 15px;
-
-            }
-
-
-            .bat-trang-modal-image {
-
-                height: 300px;
-
-            }
-
-        }
-
-
-        /* =========================================
-           ĐIỆN THOẠI
-           ========================================= */
-
-        @media (max-width: 480px) {
-
-            #productGrid,
-            .product-grid,
-            #products {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr))
-                    !important;
-
-                gap: 10px !important;
-
-                padding: 15px 10px !important;
-
-            }
-
-
-            .bat-trang-product-image {
-
-                height: 210px;
-
-            }
-
-
-            .bat-trang-product-info {
-
-                padding: 10px;
-
-            }
-
-
-            .bat-trang-product-info h3 {
-
-                font-size: 14px;
-
-            }
-
-
-            .bat-trang-price {
-
-                font-size: 16px;
+                gap:
+                    4px;
 
             }
 
@@ -1633,13 +2048,1906 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.head.appendChild(style);
 
+}
 
-    /* =====================================================
-       KHỞI CHẠY
-       ===================================================== */
 
-    renderProducts();
+/* =========================================================
+   14. MỞ CHI TIẾT SẢN PHẨM
+   ========================================================= */
 
-    renderCart();
+function showProductDetail(productId) {
 
-});
+    const product =
+        getProduct(productId);
+
+
+    if (!product) {
+        return;
+    }
+
+
+    const modal =
+        createProductModal();
+
+
+    const content =
+        document.getElementById(
+            "productDetailContent"
+        );
+
+
+    const quantity =
+        getProductQuantity(product.id);
+
+
+    content.innerHTML = `
+
+        <div class="detail-layout">
+
+            <div class="detail-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${escapeHtml(product.name)}"
+                >
+
+            </div>
+
+
+            <div class="detail-content">
+
+                <h2>
+                    ${escapeHtml(product.name)}
+                </h2>
+
+
+                <div class="detail-price">
+
+                    ${formatPrice(product.price)}
+
+                </div>
+
+
+                <div
+                    class="product-quantity-control detail-quantity-control"
+                    style="
+                        display:inline-flex;
+                        margin:8px 0 18px;
+                    "
+                >
+
+                    <button
+                        type="button"
+                        onclick="
+                            changeDetailQuantity(
+                                ${product.id},
+                                -1
+                            )
+                        "
+                    >
+                        −
+                    </button>
+
+
+                    <span
+                        id="detailQtyValue"
+                        class="product-qty-value"
+                    >
+                        ${quantity}
+                    </span>
+
+
+                    <button
+                        type="button"
+                        onclick="
+                            changeDetailQuantity(
+                                ${product.id},
+                                1
+                            )
+                        "
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <p class="detail-description">
+
+                    ${escapeHtml(product.description)}
+
+                </p>
+
+
+                <ul class="detail-list">
+
+                    <li>
+
+                        <strong>
+                            Xuất xứ
+                        </strong>
+
+                        <span>
+                            ${escapeHtml(product.origin)}
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Loại đồ
+                        </strong>
+
+                        <span>
+                            ${escapeHtml(product.type)}
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Chất liệu
+                        </strong>
+
+                        <span>
+                            ${escapeHtml(product.material)}
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Kích thước
+                        </strong>
+
+                        <span>
+                            ${escapeHtml(product.size)}
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Kỹ thuật
+                        </strong>
+
+                        <span>
+                            ${escapeHtml(product.technique)}
+                        </span>
+
+                    </li>
+
+
+                    <li>
+
+                        <strong>
+                            Công dụng
+                        </strong>
+
+                        <span>
+                            ${escapeHtml(product.use)}
+                        </span>
+
+                    </li>
+
+                </ul>
+
+
+                <div class="detail-actions">
+
+                    <button
+                        type="button"
+                        class="detail-cart-btn"
+                        onclick="
+                            addProductWithQuantity(
+                                ${product.id}
+                            );
+                            closeProductDetail();
+                        "
+                    >
+
+                        Thêm vào giỏ hàng
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="detail-close-btn"
+                        onclick="
+                            closeProductDetail();
+                        "
+                    >
+
+                        Đóng
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    modal.classList.add("show");
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* =========================================================
+   15. CỘNG / TRỪ TRONG CHI TIẾT
+   ========================================================= */
+
+function changeDetailQuantity(
+    productId,
+    change
+) {
+
+    changeProductCardQuantity(
+        productId,
+        change
+    );
+
+
+    const quantity =
+        getProductQuantity(productId);
+
+
+    const detailQuantity =
+        document.getElementById(
+            "detailQtyValue"
+        );
+
+
+    if (detailQuantity) {
+
+        detailQuantity.textContent =
+            quantity;
+
+    }
+
+}
+
+
+/* =========================================================
+   16. ĐÓNG CHI TIẾT
+   ========================================================= */
+
+function closeProductDetail() {
+
+    const modal =
+        document.getElementById(
+            "productDetailModal"
+        );
+
+
+    if (modal) {
+
+        modal.classList.remove(
+            "show"
+        );
+
+    }
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =========================================================
+   17. THÊM VÀO GIỎ
+   ========================================================= */
+
+function addToCart(
+    productId,
+    quantity = 1
+) {
+
+    const product =
+        getProduct(productId);
+
+
+    if (!product) {
+        return;
+    }
+
+
+    quantity =
+        Number(quantity);
+
+
+    if (!Number.isFinite(quantity) ||
+        quantity < 1) {
+
+        quantity = 1;
+
+    }
+
+
+    const existing =
+        cart.find(
+            item =>
+                item.id === product.id
+        );
+
+
+    if (existing) {
+
+        existing.quantity +=
+            quantity;
+
+    } else {
+
+        cart.push({
+
+            id:
+                product.id,
+
+            name:
+                product.name,
+
+            price:
+                product.price,
+
+            image:
+                product.image,
+
+            quantity:
+                quantity
+
+        });
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+
+    showToast(
+        `Đã thêm ${quantity} sản phẩm "${product.name}" vào giỏ hàng.`
+    );
+
+}
+
+
+/* =========================================================
+   18. TĂNG / GIẢM GIỎ HÀNG
+   ========================================================= */
+
+function changeQuantity(
+    productId,
+    change
+) {
+
+    const id =
+        Number(productId);
+
+
+    const item =
+        cart.find(
+            cartItem =>
+                cartItem.id === id
+        );
+
+
+    if (!item) {
+        return;
+    }
+
+
+    item.quantity +=
+        Number(change);
+
+
+    if (item.quantity <= 0) {
+
+        cart =
+            cart.filter(
+                cartItem =>
+                    cartItem.id !== id
+            );
+
+    }
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =========================================================
+   19. XÓA SẢN PHẨM
+   ========================================================= */
+
+function removeFromCart(productId) {
+
+    const id =
+        Number(productId);
+
+
+    cart =
+        cart.filter(
+            item =>
+                item.id !== id
+        );
+
+
+    saveCart();
+
+    updateCart();
+
+}
+
+
+/* =========================================================
+   20. TỔNG GIỎ HÀNG
+   ========================================================= */
+
+function getCartTotal() {
+
+    return cart.reduce(
+
+        (total, item) =>
+
+            total +
+            item.price *
+            item.quantity,
+
+        0
+
+    );
+
+}
+
+
+/* =========================================================
+   21. SỐ LƯỢNG TRONG GIỎ
+   ========================================================= */
+
+function getCartCount() {
+
+    return cart.reduce(
+
+        (total, item) =>
+
+            total +
+            item.quantity,
+
+        0
+
+    );
+
+}
+
+
+/* =========================================================
+   22. CẬP NHẬT GIỎ HÀNG
+   ========================================================= */
+
+function updateCart() {
+
+    const count =
+        getCartCount();
+
+
+    const total =
+        getCartTotal();
+
+
+    const countElements = [
+
+        document.getElementById(
+            "cartCount"
+        ),
+
+        document.getElementById(
+            "cart-count"
+        ),
+
+        document.querySelector(
+            ".cart-count"
+        )
+
+    ].filter(Boolean);
+
+
+    countElements.forEach(
+        element => {
+
+            element.textContent =
+                count;
+
+        }
+    );
+
+
+    const totalElements = [
+
+        document.getElementById(
+            "cartTotal"
+        ),
+
+        document.getElementById(
+            "cart-total"
+        )
+
+    ].filter(Boolean);
+
+
+    totalElements.forEach(
+        element => {
+
+            element.textContent =
+                formatPrice(total);
+
+        }
+    );
+
+
+    const cartItems =
+        document.getElementById(
+            "cartItems"
+        ) ||
+        document.getElementById(
+            "cart-items"
+        );
+
+
+    if (!cartItems) {
+        return;
+    }
+
+
+    if (!cart.length) {
+
+        cartItems.innerHTML = `
+
+            <div class="empty-cart">
+
+                <p>
+                    Giỏ hàng đang trống.
+                </p>
+
+                <small>
+                    Hãy chọn một tác phẩm
+                    gốm bạn yêu thích.
+                </small>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    cartItems.innerHTML =
+
+        cart.map(item => `
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${escapeHtml(item.name)}"
+                >
+
+
+                <div class="cart-item-info">
+
+                    <h4>
+                        ${escapeHtml(item.name)}
+                    </h4>
+
+
+                    <strong>
+                        ${formatPrice(item.price)}
+                    </strong>
+
+
+                    <div
+                        class="quantity-control"
+                    >
+
+                        <button
+                            type="button"
+                            onclick="
+                                changeQuantity(
+                                    ${item.id},
+                                    -1
+                                )
+                            "
+                        >
+                            −
+                        </button>
+
+
+                        <span>
+                            ${item.quantity}
+                        </span>
+
+
+                        <button
+                            type="button"
+                            onclick="
+                                changeQuantity(
+                                    ${item.id},
+                                    1
+                                )
+                            "
+                        >
+                            +
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="remove-cart-item"
+                            onclick="
+                                removeFromCart(
+                                    ${item.id}
+                                )
+                            "
+                        >
+                            Xóa
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   23. MỞ / ĐÓNG GIỎ
+   ========================================================= */
+
+function toggleCart(forceState) {
+
+    const sidebar =
+
+        document.getElementById(
+            "cartSidebar"
+        ) ||
+
+        document.querySelector(
+            ".cart-sidebar"
+        );
+
+
+    if (!sidebar) {
+        return;
+    }
+
+
+    let shouldOpen;
+
+
+    if (
+        typeof forceState ===
+        "boolean"
+    ) {
+
+        shouldOpen =
+            forceState;
+
+    } else {
+
+        shouldOpen =
+            !sidebar.classList.contains(
+                "open"
+            );
+
+    }
+
+
+    sidebar.classList.toggle(
+        "open",
+        shouldOpen
+    );
+
+
+    sidebar.classList.toggle(
+        "active",
+        shouldOpen
+    );
+
+}
+
+
+/* =========================================================
+   24. CHỌN SẢN PHẨM ĐỂ ĐẶT HÀNG
+   ========================================================= */
+
+function selectProductForOrder(
+    productId
+) {
+
+    const product =
+        getProduct(productId);
+
+
+    if (!product) {
+        return;
+    }
+
+
+    const productSelect =
+        document.getElementById(
+            "orderProduct"
+        );
+
+
+    if (productSelect) {
+
+        productSelect.value =
+            String(product.id);
+
+    }
+
+
+    updateOrderSummary();
+
+}
+
+
+/* =========================================================
+   25. ĐIỀN DANH SÁCH SẢN PHẨM VÀO FORM
+   ========================================================= */
+
+function populateOrderProducts() {
+
+    const select =
+        document.getElementById(
+            "orderProduct"
+        );
+
+
+    if (!select) {
+        return;
+    }
+
+
+    /*
+       Nếu đã có option sản phẩm thì
+       không tạo lại.
+    */
+
+    const existingOptions =
+        Array.from(select.options)
+            .map(option =>
+                option.value
+            );
+
+
+    products.forEach(product => {
+
+        if (
+            existingOptions.includes(
+                String(product.id)
+            )
+        ) {
+            return;
+        }
+
+
+        const option =
+            document.createElement(
+                "option"
+            );
+
+
+        option.value =
+            product.id;
+
+
+        option.textContent =
+            product.name;
+
+
+        select.appendChild(
+            option
+        );
+
+    });
+
+
+    select.addEventListener(
+        "change",
+        updateOrderSummary
+    );
+
+}
+
+
+/* =========================================================
+   26. CẬP NHẬT TÓM TẮT ĐẶT HÀNG
+   ========================================================= */
+
+function updateOrderSummary() {
+
+    const select =
+        document.getElementById(
+            "orderProduct"
+        );
+
+
+    if (!select) {
+        return;
+    }
+
+
+    const product =
+        getProduct(select.value);
+
+
+    const quantityInput =
+        document.getElementById(
+            "orderQuantity"
+        );
+
+
+    const quantity =
+        Math.max(
+            1,
+            Number(
+                quantityInput?.value || 1
+            )
+        );
+
+
+    const summaryProduct =
+        document.getElementById(
+            "orderSummaryProduct"
+        );
+
+
+    const summaryPrice =
+        document.getElementById(
+            "orderSummaryPrice"
+        );
+
+
+    const summaryQuantity =
+        document.getElementById(
+            "orderSummaryQuantity"
+        );
+
+
+    const summaryTotal =
+        document.getElementById(
+            "orderSummaryTotal"
+        );
+
+
+    if (!product) {
+
+        if (summaryProduct) {
+            summaryProduct.textContent =
+                "Chưa chọn sản phẩm";
+        }
+
+        if (summaryPrice) {
+            summaryPrice.textContent =
+                "0 đ";
+        }
+
+        if (summaryQuantity) {
+            summaryQuantity.textContent =
+                "0";
+        }
+
+        if (summaryTotal) {
+            summaryTotal.textContent =
+                "0 đ";
+        }
+
+        return;
+
+    }
+
+
+    if (summaryProduct) {
+
+        summaryProduct.textContent =
+            product.name;
+
+    }
+
+
+    if (summaryPrice) {
+
+        summaryPrice.textContent =
+            formatPrice(product.price);
+
+    }
+
+
+    if (summaryQuantity) {
+
+        summaryQuantity.textContent =
+            quantity;
+
+    }
+
+
+    if (summaryTotal) {
+
+        summaryTotal.textContent =
+            formatPrice(
+                product.price *
+                quantity
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   27. KIỂM TRA SỐ ĐIỆN THOẠI VIỆT NAM
+   ========================================================= */
+
+function isValidVietnamesePhone(
+    phone
+) {
+
+    const normalized =
+        String(phone || "")
+            .replace(/\s+/g, "")
+            .replace(/-/g, "")
+            .replace(/\./g, "");
+
+
+    return /^(0|\+84)(3|5|7|8|9)\d{8}$/
+        .test(normalized);
+
+}
+
+
+/* =========================================================
+   28. TƯ VẤN KHÁCH HÀNG
+   ---------------------------------------------------------
+   Họ tên + số điện thoại
+   ========================================================= */
+
+function submitConsultation(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+    }
+
+
+    const nameInput =
+        document.getElementById(
+            "consultName"
+        );
+
+
+    const phoneInput =
+        document.getElementById(
+            "consultPhone"
+        );
+
+
+    const name =
+        nameInput
+            ? nameInput.value.trim()
+            : "";
+
+
+    const phone =
+        phoneInput
+            ? phoneInput.value.trim()
+            : "";
+
+
+    if (!name) {
+
+        showToast(
+            "Vui lòng nhập họ và tên."
+        );
+
+        nameInput?.focus();
+
+        return false;
+
+    }
+
+
+    if (!phone) {
+
+        showToast(
+            "Vui lòng nhập số điện thoại."
+        );
+
+        phoneInput?.focus();
+
+        return false;
+
+    }
+
+
+    if (
+        !isValidVietnamesePhone(
+            phone
+        )
+    ) {
+
+        showToast(
+            "Số điện thoại chưa đúng định dạng."
+        );
+
+        phoneInput?.focus();
+
+        return false;
+
+    }
+
+
+    const consultation = {
+
+        name:
+            name,
+
+        phone:
+            phone,
+
+        time:
+            new Date().toISOString()
+
+    };
+
+
+    localStorage.setItem(
+
+        "chamHonVietConsultation",
+
+        JSON.stringify(
+            consultation
+        )
+
+    );
+
+
+    showToast(
+        "Đã nhận thông tin tư vấn. Chúng tôi sẽ liên hệ với bạn qua số điện thoại."
+    );
+
+
+    if (
+        document.getElementById(
+            "consultationForm"
+        )
+    ) {
+
+        document
+            .getElementById(
+                "consultationForm"
+            )
+            .reset();
+
+    }
+
+
+    return false;
+
+}
+
+
+/* =========================================================
+   29. ĐẶT HÀNG
+   ---------------------------------------------------------
+   Họ tên
+   Số điện thoại
+   Địa chỉ
+   Sản phẩm
+   Số lượng
+   Thanh toán
+   Ghi chú
+   ========================================================= */
+
+function submitOrder(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+    }
+
+
+    const name =
+        document.getElementById(
+            "orderName"
+        )?.value.trim() || "";
+
+
+    const phone =
+        document.getElementById(
+            "orderPhone"
+        )?.value.trim() || "";
+
+
+    const address =
+        document.getElementById(
+            "orderAddress"
+        )?.value.trim() || "";
+
+
+    const productId =
+        document.getElementById(
+            "orderProduct"
+        )?.value || "";
+
+
+    const quantity =
+        Math.max(
+
+            1,
+
+            Number(
+                document.getElementById(
+                    "orderQuantity"
+                )?.value || 1
+            )
+
+        );
+
+
+    const payment =
+        document.getElementById(
+            "paymentMethod"
+        )?.value || "";
+
+
+    const note =
+        document.getElementById(
+            "orderNote"
+        )?.value.trim() || "";
+
+
+    if (!name) {
+
+        showToast(
+            "Vui lòng nhập họ và tên."
+        );
+
+        return false;
+
+    }
+
+
+    if (!phone) {
+
+        showToast(
+            "Vui lòng nhập số điện thoại."
+        );
+
+        return false;
+
+    }
+
+
+    if (
+        !isValidVietnamesePhone(
+            phone
+        )
+    ) {
+
+        showToast(
+            "Số điện thoại chưa đúng định dạng."
+        );
+
+        return false;
+
+    }
+
+
+    if (!address) {
+
+        showToast(
+            "Vui lòng nhập địa chỉ nhận hàng."
+        );
+
+        return false;
+
+    }
+
+
+    const product =
+        getProduct(productId);
+
+
+    if (!product) {
+
+        showToast(
+            "Vui lòng chọn sản phẩm."
+        );
+
+        return false;
+
+    }
+
+
+    if (!payment) {
+
+        showToast(
+            "Vui lòng chọn phương thức thanh toán."
+        );
+
+        return false;
+
+    }
+
+
+    const total =
+        product.price *
+        quantity;
+
+
+    const paymentNames = {
+
+        COD:
+            "Thanh toán khi nhận hàng (COD)",
+
+        bank:
+            "Chuyển khoản ngân hàng",
+
+        "e-wallet":
+            "Thanh toán điện tử"
+
+    };
+
+
+    const order = {
+
+        id:
+            "CHV-" +
+            Date.now(),
+
+        customer: {
+
+            name:
+                name,
+
+            phone:
+                phone,
+
+            address:
+                address
+
+        },
+
+        product: {
+
+            id:
+                product.id,
+
+            name:
+                product.name,
+
+            price:
+                product.price,
+
+            quantity:
+                quantity,
+
+            total:
+                total
+
+        },
+
+        payment:
+            payment,
+
+        paymentName:
+            paymentNames[payment] ||
+            payment,
+
+        note:
+            note,
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    localStorage.setItem(
+
+        "chamHonVietLastOrder",
+
+        JSON.stringify(
+            order
+        )
+
+    );
+
+
+    let orders = [];
+
+
+    try {
+
+        orders =
+            JSON.parse(
+                localStorage.getItem(
+                    "chamHonVietOrders"
+                ) || "[]"
+            );
+
+    } catch (error) {
+
+        orders = [];
+
+    }
+
+
+    orders.push(order);
+
+
+    localStorage.setItem(
+
+        "chamHonVietOrders",
+
+        JSON.stringify(
+            orders
+        )
+
+    );
+
+
+    showToast(
+
+        `Đặt hàng thành công! Tổng tiền: ${formatPrice(total)}.`
+
+    );
+
+
+    const orderForm =
+        document.getElementById(
+            "orderForm"
+        );
+
+
+    if (orderForm) {
+
+        orderForm.reset();
+
+    }
+
+
+    updateOrderSummary();
+
+
+    return false;
+
+}
+
+
+/* =========================================================
+   30. THANH TOÁN TỪ GIỎ
+   ========================================================= */
+
+function checkout() {
+
+    if (!cart.length) {
+
+        showToast(
+            "Giỏ hàng đang trống."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Nếu có form đặt hàng,
+       chuyển sản phẩm đầu tiên vào form.
+    */
+
+    const firstItem =
+        cart[0];
+
+
+    selectProductForOrder(
+        firstItem.id
+    );
+
+
+    const quantityInput =
+        document.getElementById(
+            "orderQuantity"
+        );
+
+
+    if (quantityInput) {
+
+        quantityInput.value =
+            firstItem.quantity;
+
+    }
+
+
+    updateOrderSummary();
+
+
+    const orderForm =
+        document.getElementById(
+            "orderForm"
+        );
+
+
+    if (orderForm) {
+
+        orderForm.scrollIntoView({
+
+            behavior:
+                "smooth",
+
+            block:
+                "center"
+
+        });
+
+
+        showToast(
+            "Đã chuyển sản phẩm sang phần đặt hàng. Vui lòng điền thông tin để hoàn tất."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Nếu trang không có form đặt hàng
+       thì vẫn giữ hành vi cũ.
+    */
+
+    const total =
+        getCartTotal();
+
+
+    const confirmed =
+        window.confirm(
+
+            `Xác nhận đặt hàng với tổng giá trị ${formatPrice(total)}?`
+
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    cart = [];
+
+
+    saveCart();
+
+    updateCart();
+
+    toggleCart(false);
+
+
+    showToast(
+        "Đặt hàng thành công! Đây là website mô phỏng."
+    );
+
+}
+
+
+/* =========================================================
+   31. ĐĂNG KÝ EMAIL
+   ========================================================= */
+
+function subscribeEmail(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+    }
+
+
+    const input =
+
+        document.getElementById(
+            "emailInput"
+        ) ||
+
+        document.querySelector(
+            'input[type="email"]'
+        );
+
+
+    if (
+        !input ||
+        !input.value.trim()
+    ) {
+
+        showToast(
+            "Vui lòng nhập email."
+        );
+
+        return false;
+
+    }
+
+
+    const email =
+        input.value.trim();
+
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+    if (!emailRegex.test(email)) {
+
+        showToast(
+            "Email chưa đúng định dạng."
+        );
+
+        return false;
+
+    }
+
+
+    localStorage.setItem(
+
+        "chamHonVietNewsletter",
+
+        email
+
+    );
+
+
+    input.value = "";
+
+
+    showToast(
+        "Đăng ký nhận thông tin thành công!"
+    );
+
+
+    return false;
+
+}
+
+
+/* =========================================================
+   32. TOAST
+   ========================================================= */
+
+function showToast(message) {
+
+    let toast =
+        document.getElementById(
+            "siteToast"
+        );
+
+
+    if (!toast) {
+
+        toast =
+            document.createElement(
+                "div"
+            );
+
+
+        toast.id =
+            "siteToast";
+
+
+        toast.style.cssText = `
+
+            position: fixed;
+
+            right: 22px;
+
+            bottom: 22px;
+
+            z-index: 100001;
+
+            max-width:
+                min(
+                    390px,
+                    calc(100vw - 44px)
+                );
+
+            padding:
+                13px 17px;
+
+            border-radius:
+                12px;
+
+            background:
+                #5a4030;
+
+            color:
+                #ffffff;
+
+            box-shadow:
+                0 12px 30px
+                rgba(0,0,0,.18);
+
+            font: inherit;
+
+            font-size:
+                14px;
+
+            line-height:
+                1.5;
+
+            transform:
+                translateY(20px);
+
+            opacity:
+                0;
+
+            transition:
+                .25s ease;
+
+        `;
+
+
+        document.body.appendChild(
+            toast
+        );
+
+    }
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.opacity =
+        "1";
+
+
+    toast.style.transform =
+        "translateY(0)";
+
+
+    clearTimeout(
+        window.__toastTimer
+    );
+
+
+    window.__toastTimer =
+        setTimeout(() => {
+
+            toast.style.opacity =
+                "0";
+
+            toast.style.transform =
+                "translateY(20px)";
+
+        }, 2800);
+
+}
+
+
+/* =========================================================
+   33. HIỆU ỨNG MỞ TRANG
+   ========================================================= */
+
+function startPageIntro() {
+
+    /*
+       Không đổi font.
+       Chỉ tạo hiệu ứng màn hình mở đầu.
+    */
+
+    document.body.classList.add(
+        "chv-page-loading"
+    );
+
+
+    setTimeout(() => {
+
+        document.body.classList.remove(
+            "chv-page-loading"
+        );
+
+    }, 1300);
+
+}
+
+
+/* =========================================================
+   34. KHỞI TẠO WEBSITE
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        /*
+           Thêm CSS
+        */
+
+        addProductModalCSS();
+
+
+        /*
+           Hiệu ứng khi mới vào website
+        */
+
+        startPageIntro();
+
+
+        /*
+           Hiển thị toàn bộ 16 sản phẩm
+        */
+
+        renderProducts("all");
+
+
+        /*
+           Cập nhật giỏ
+        */
+
+        updateCart();
+
+
+        /*
+           Tạo danh sách sản phẩm
+           trong form đặt hàng
+        */
+
+        populateOrderProducts();
+
+
+        /*
+           Cập nhật tóm tắt đơn hàng
+        */
+
+        updateOrderSummary();
+
+
+        /*
+           Tìm kiếm
+        */
+
+        const searchInput =
+            document.getElementById(
+                "productSearch"
+            );
+
+
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                "input",
+                event => {
+
+                    searchProducts(
+                        event.target.value
+                    );
+
+                }
+            );
+
+        }
+
+
+        /*
+           Khi thay đổi số lượng đặt hàng
+        */
+
+        const orderQuantity =
+            document.getElementById(
+                "orderQuantity"
+            );
+
+
+        if (orderQuantity) {
+
+            orderQuantity.addEventListener(
+                "input",
+                updateOrderSummary
+            );
+
+            orderQuantity.addEventListener(
+                "change",
+                updateOrderSummary
+            );
+
+        }
+
+
+        /*
+           Khi chọn sản phẩm
+        */
+
+        const orderProduct =
+            document.getElementById(
+                "orderProduct"
+            );
+
+
+        if (orderProduct) {
+
+            orderProduct.addEventListener(
+                "change",
+                updateOrderSummary
+            );
+
+        }
+
+
+        /*
+           Nhấn ESC để đóng popup
+        */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key ===
+                    "Escape"
+                ) {
+
+                    closeProductDetail();
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   35. TƯƠNG THÍCH TRANG CŨ
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        updateCart();
+
+        populateOrderProducts();
+
+        updateOrderSummary();
+
+    }
+);
