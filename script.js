@@ -188,7 +188,7 @@ const products = [
 
     {
         id: 10,
-        name: "Bình Trang Trí Hoa Điểu Họa Tiết Hope",
+        name: "Bộ ba Bình Hoa Điểu Họa Tiết Hope",
         price: 4580000,
         category: "binh",
         origin: "Bát Tràng, Gia Lâm, Hà Nội",
@@ -206,18 +206,18 @@ const products = [
 
     {
         id: 11,
-        name: "Bộ Ấm Chén Men Rạn Họa Tiết Cổ",
+        name: "Bộ ba Bình Men Rạn Họa Tiết Cổ",
         price: 2680000,
         category: "am",
         origin: "Bát Tràng, Gia Lâm, Hà Nội",
-        type: "Bộ ấm chén thưởng trà",
+        type: "Bộ ba Bình Men Rạn",
         material: "Gốm Bát Tràng, men rạn",
-        size: "Ấm và chén",
+        size: "Dòng bình trung - lớn",
         technique: "Tạo hình thủ công, phủ men rạn, nung nhiệt cao",
         description:
-            "Bộ ấm chén mang bề mặt men rạn đặc trưng, tạo cảm giác cổ kính và mộc mạc. Phù hợp với không gian trà hoặc làm quà biếu.",
+            "Bộ ba Bình mang bề mặt men rạn đặc trưng, tạo cảm giác cổ kính và mộc mạc. Phù hợp với không gian trà hoặc làm quà biếu.",
         use:
-            "Thưởng trà, tiếp khách, trưng bày và quà tặng.",
+            "Trưng bày và quà tặng.",
         image:
             "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRqTjHmLxve9gZTwigiRXZm_VY3RcPht7_IgL5_YLOvPX-oAafI"
     },
@@ -242,16 +242,16 @@ const products = [
 
     {
         id: 13,
-        name: "Đôi Lục Bình Hắc Kim Thuyền Hải Hành",
+        name: "Bộ ấm trà Lục Bình Hắc Kim Thuyền Hải Hành",
         price: 6850000,
-        category: "binh",
+        category: "am",
         origin: "Bát Tràng, Gia Lâm, Hà Nội",
-        type: "Đôi lục bình cao cấp",
+        type: "Bộ ấm trà cao cấp",
         material: "Gốm Bát Tràng, men đen - ánh kim",
-        size: "Dòng bình lớn - đôi",
+        size: "Ấm trà dậu mi",
         technique: "Tạo hình, đắp nổi họa tiết, xử lý men và nung",
         description:
-            "Đôi lục bình tông đen ánh kim tạo cảm giác sang trọng, nổi bật với hình ảnh thuyền và cảnh biển trên thân bình.",
+            "Bộ ấm trà Lục Bình tông đen ánh kim tạo cảm giác sang trọng, nổi bật với hình ảnh thuyền và cảnh biển trên thân bình.",
         use:
             "Phòng khách, sảnh lớn, văn phòng và quà biếu cao cấp.",
         image:
@@ -278,13 +278,13 @@ const products = [
 
     {
         id: 15,
-        name: "Đĩa Nghệ Thuật Thuyền Buồm Vượt Sóng",
+        name: "Đôi Nghệ Thuật Thuyền Buồm Vượt Sóng",
         price: 4850000,
-        category: "bat",
+        category: "binh",
         origin: "Bát Tràng, Gia Lâm, Hà Nội",
-        type: "Đĩa trang trí nghệ thuật",
+        type: "Đôi bình trang trí nghệ thuật",
         material: "Gốm Bát Tràng, men màu",
-        size: "Đĩa lớn - dùng trưng bày",
+        size: "Bình lớn - dùng trưng bày",
         technique: "Tạo hình, trang trí cảnh thuyền buồm, nung nhiệt cao",
         description:
             "Đĩa nghệ thuật tái hiện hình ảnh thuyền buồm trên biển. Thiết kế phù hợp với cách trưng bày theo chủ đề và tạo điểm nhấn cho không gian.",
@@ -296,13 +296,13 @@ const products = [
 
     {
         id: 16,
-        name: "Bình Hoa Men Trắng Viền Vàng Kèm Cốc",
+        name: "Đĩa Hoa Men Trắng Viền Vàng",
         price: 3250000,
-        category: "binh",
+        category: "bat",
         origin: "Bát Tràng, Gia Lâm, Hà Nội",
-        type: "Bộ bình hoa và cốc trang trí",
+        type: "Đĩa trang trí",
         material: "Sứ/gốm Bát Tràng, men trắng, điểm nhấn vàng",
-        size: "Bình cỡ vừa kèm phụ kiện",
+        size: "Đĩa cỡ vừa",
         technique: "Tạo hình, trang trí hoa, phối màu và nung",
         description:
             "Bộ sản phẩm có bình hoa nền trắng với họa tiết hoa và đường viền vàng, đi kèm các cốc đồng bộ. Tổng thể thanh lịch và phù hợp làm quà tặng.",
