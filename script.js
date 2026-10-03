@@ -1,11 +1,8 @@
-/* =========================================================
-   BÁT TRÀNG CERAMIC SHOP
-   FILE DUY NHẤT: script.js
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
-       1. DỮ LIỆU SẢN PHẨM
+       DỮ LIỆU SẢN PHẨM
+       KHÔNG CHIA DANH MỤC
        ===================================================== */
 
     const products = [
@@ -18,8 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ Bát Tràng cao cấp",
             size: "Bộ sản phẩm tiêu chuẩn",
             technique: "Trang trí thủ công",
-            description:
-                "Sản phẩm gốm Bát Tràng được chế tác và trang trí thủ công, mang đậm nét văn hóa truyền thống của làng nghề."
+            description: "Sản phẩm gốm Bát Tràng được chế tác và trang trí thủ công, mang đậm nét văn hóa truyền thống của làng nghề."
         },
 
         {
@@ -31,8 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ cao cấp",
             size: "Bộ sản phẩm",
             technique: "Tạo hình và nung thủ công",
-            description:
-                "Dòng sản phẩm đặc trưng của Bát Tràng với kiểu dáng thanh lịch, phù hợp sử dụng trong gia đình hoặc làm quà tặng."
+            description: "Dòng sản phẩm đặc trưng của Bát Tràng với kiểu dáng thanh lịch, phù hợp sử dụng trong gia đình hoặc làm quà tặng."
         },
 
         {
@@ -44,8 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Sứ trắng cao cấp",
             size: "Bộ nhiều món",
             technique: "Vẽ tay thủ công",
-            description:
-                "Bộ bát đĩa với họa tiết hoa cúc được vẽ thủ công, tạo cảm giác trang nhã và sang trọng cho bàn ăn."
+            description: "Bộ bát đĩa với họa tiết hoa cúc được vẽ thủ công, tạo cảm giác trang nhã và sang trọng."
         },
 
         {
@@ -57,8 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Sứ trắng",
             size: "Bộ nhiều món",
             technique: "Trang trí họa tiết hoa sen",
-            description:
-                "Bộ bát đĩa sứ trắng họa tiết hoa sen xanh mang vẻ đẹp nhẹ nhàng, phù hợp với không gian ăn uống hiện đại."
+            description: "Bộ bát đĩa sứ trắng họa tiết hoa sen xanh mang vẻ đẹp nhẹ nhàng, phù hợp với không gian ăn uống hiện đại."
         },
 
         {
@@ -70,8 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm đất nung",
             size: "Nhiều kích thước",
             technique: "Thủ công truyền thống",
-            description:
-                "Sản phẩm mang nét đặc trưng của làng nghề Bát Tràng, thích hợp làm vật dụng trang trí hoặc quà lưu niệm."
+            description: "Sản phẩm mang nét đặc trưng của làng nghề Bát Tràng, thích hợp làm vật dụng trang trí hoặc quà lưu niệm."
         },
 
         {
@@ -83,8 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ cao cấp",
             size: "Cao khoảng 60cm, đường kính khoảng 34cm",
             technique: "Đắp nổi và vẽ trang trí",
-            description:
-                "Bảo bình họa tiết sen cá mang ý nghĩa phú quý, thường được sử dụng để trang trí phòng khách, phòng làm việc hoặc không gian sang trọng."
+            description: "Bảo bình họa tiết sen cá mang ý nghĩa phú quý, thường được sử dụng để trang trí phòng khách hoặc phòng làm việc."
         },
 
         {
@@ -96,8 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ",
             size: "Kích thước trang trí",
             technique: "Tạo hình thủ công",
-            description:
-                "Bình gốm nghệ thuật có thiết kế nổi bật, phù hợp trang trí nội thất và làm quà tặng."
+            description: "Bình gốm nghệ thuật có thiết kế nổi bật, phù hợp trang trí nội thất và làm quà tặng."
         },
 
         {
@@ -109,8 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Sứ men hỏa biến",
             size: "Cốc uống nước",
             technique: "Men hỏa biến",
-            description:
-                "Cốc sứ Bát Tràng sử dụng kỹ thuật men hỏa biến tạo ra màu sắc tự nhiên và độc đáo trên từng sản phẩm."
+            description: "Cốc sứ Bát Tràng sử dụng kỹ thuật men hỏa biến tạo ra màu sắc tự nhiên và độc đáo."
         },
 
         {
@@ -122,8 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ cao cấp",
             size: "Ấm trà gia đình",
             technique: "Tạo hình thủ công",
-            description:
-                "Ấm trà mang phong cách truyền thống, thích hợp dùng thưởng trà hoặc làm quà biếu."
+            description: "Ấm trà mang phong cách truyền thống, thích hợp dùng thưởng trà hoặc làm quà biếu."
         },
 
         {
@@ -135,8 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ",
             size: "Bộ ấm chén",
             technique: "Nung men thủ công",
-            description:
-                "Bộ ấm chén có thiết kế thanh lịch, phù hợp sử dụng trong gia đình, văn phòng hoặc làm quà tặng."
+            description: "Bộ ấm chén có thiết kế thanh lịch, phù hợp sử dụng trong gia đình, văn phòng hoặc làm quà tặng."
         },
 
         {
@@ -148,8 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ",
             size: "Bộ đĩa trang trí",
             technique: "Trang trí thủ công",
-            description:
-                "Bộ đĩa gốm mang phong cách trang trí truyền thống, thích hợp trưng bày hoặc sử dụng trong gia đình."
+            description: "Bộ đĩa gốm mang phong cách trang trí truyền thống, thích hợp trưng bày hoặc sử dụng."
         },
 
         {
@@ -161,8 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Sứ cao cấp",
             size: "Bộ gia đình",
             technique: "Nung nhiệt độ cao",
-            description:
-                "Bộ bát đĩa phục vụ nhu cầu sử dụng hàng ngày với thiết kế trang nhã và chất liệu bền đẹp."
+            description: "Bộ bát đĩa phục vụ nhu cầu sử dụng hàng ngày với thiết kế trang nhã và chất liệu bền đẹp."
         },
 
         {
@@ -174,8 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ nghệ thuật",
             size: "Bình trang trí",
             technique: "Tạo hình và trang trí thủ công",
-            description:
-                "Bình gốm nghệ thuật với kiểu dáng nổi bật, phù hợp trang trí không gian phòng khách và sảnh."
+            description: "Bình gốm nghệ thuật với kiểu dáng nổi bật, phù hợp trang trí không gian phòng khách."
         },
 
         {
@@ -187,8 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ",
             size: "Sản phẩm trang trí",
             technique: "Thủ công",
-            description:
-                "Sản phẩm gốm sứ mang phong cách đặc trưng Bát Tràng, thích hợp trang trí và làm quà tặng."
+            description: "Sản phẩm gốm sứ mang phong cách đặc trưng Bát Tràng, thích hợp trang trí và làm quà tặng."
         },
 
         {
@@ -200,8 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Sứ cao cấp",
             size: "Bộ ấm chén",
             technique: "Trang trí hoa văn",
-            description:
-                "Bộ ấm chén có hoa văn tinh tế, thích hợp sử dụng khi thưởng trà hoặc tiếp khách."
+            description: "Bộ ấm chén có hoa văn tinh tế, thích hợp sử dụng khi thưởng trà hoặc tiếp khách."
         },
 
         {
@@ -213,8 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm sứ",
             size: "Bình trang trí",
             technique: "Chế tác thủ công",
-            description:
-                "Bình gốm trang trí mang phong cách nghệ thuật, phù hợp với nhiều không gian nội thất."
+            description: "Bình gốm trang trí mang phong cách nghệ thuật, phù hợp với nhiều không gian nội thất."
         },
 
         {
@@ -226,23 +207,22 @@ document.addEventListener("DOMContentLoaded", () => {
             material: "Gốm men cao cấp",
             size: "Bình trang trí",
             technique: "Men và tạo hình thủ công",
-            description:
-                "Bình gốm có kiểu dáng nghệ thuật, lớp men tạo hiệu ứng đẹp mắt và phù hợp với không gian sang trọng."
+            description: "Bình gốm có kiểu dáng nghệ thuật, lớp men tạo hiệu ứng đẹp mắt và phù hợp với không gian sang trọng."
         }
     ];
 
 
     /* =====================================================
-       2. BIẾN
+       GIỎ HÀNG
        ===================================================== */
 
-    let cart = JSON.parse(localStorage.getItem("batTrangCart")) || [];
-    let currentSearch = "";
-    let currentSort = "default";
+    let cart = JSON.parse(
+        localStorage.getItem("batTrangCart")
+    ) || [];
 
 
     /* =====================================================
-       3. HÀM ĐỊNH DẠNG
+       FORMAT GIÁ
        ===================================================== */
 
     function formatPrice(price) {
@@ -250,143 +230,153 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function escapeHTML(text) {
-        if (!text) return "";
+    /* =====================================================
+       XÓA CÁC PHẦN PHÂN LOẠI CŨ
+       
+       Nếu index.html của bạn còn:
+       - Danh mục
+       - Category
+       - Bộ lọc loại sản phẩm
+       
+       script sẽ ẩn chúng.
+       ===================================================== */
 
-        return String(text)
-            .replace(/&/g, "&amp;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
+    const categorySelectors = [
+        ".categories",
+        ".category-list",
+        ".category-filter",
+        ".product-categories",
+        "#categories",
+        "#categoryFilter",
+        "#productCategories",
+        "[data-category]",
+        "[data-categories]"
+    ];
+
+    categorySelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach(element => {
+            element.style.display = "none";
+        });
+    });
+
+
+    /* =====================================================
+       TÌM VÙNG HIỂN THỊ SẢN PHẨM
+       ===================================================== */
+
+    let productGrid =
+        document.querySelector("#productGrid") ||
+        document.querySelector(".product-grid") ||
+        document.querySelector("#products");
+
+
+    /*
+       Nếu HTML chưa có productGrid
+       thì tự tạo luôn.
+    */
+
+    if (!productGrid) {
+
+        productGrid = document.createElement("div");
+
+        productGrid.id = "productGrid";
+
+        document.body.appendChild(productGrid);
     }
 
 
     /* =====================================================
-       4. HIỂN THỊ SẢN PHẨM
+       ÉP PRODUCT GRID FULL MÀN HÌNH
+       ===================================================== */
+
+    productGrid.style.width = "100%";
+    productGrid.style.maxWidth = "none";
+    productGrid.style.margin = "0";
+    productGrid.style.padding = "30px 4vw";
+    productGrid.style.boxSizing = "border-box";
+
+    productGrid.style.display = "grid";
+
+    productGrid.style.gridTemplateColumns =
+        "repeat(4, minmax(0, 1fr))";
+
+    productGrid.style.gap = "28px";
+
+    productGrid.style.alignItems = "start";
+
+
+    /* =====================================================
+       HIỂN THỊ SẢN PHẨM
        ===================================================== */
 
     function renderProducts() {
-        const grid =
-            document.querySelector("#productGrid") ||
-            document.querySelector(".product-grid") ||
-            document.querySelector("#products");
 
-        if (!grid) {
-            console.warn("Không tìm thấy khu vực hiển thị sản phẩm.");
-            return;
-        }
+        productGrid.innerHTML = "";
 
-        let list = [...products];
+        products.forEach(function (product) {
 
-        /* Tìm kiếm */
-        if (currentSearch.trim() !== "") {
-            const keyword = currentSearch
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "");
+            const item =
+                cart.find(
+                    cartItem =>
+                        cartItem.id === product.id
+                );
 
-            list = list.filter(product => {
-                const text = `
-                    ${product.name}
-                    ${product.origin}
-                    ${product.material}
-                    ${product.description}
-                `
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "");
+            const quantity =
+                item ? item.quantity : 0;
 
-                return text.includes(keyword);
-            });
-        }
 
-        /* Sắp xếp */
-        if (currentSort === "price-asc") {
-            list.sort((a, b) => a.price - b.price);
-        }
+            const card =
+                document.createElement("div");
 
-        if (currentSort === "price-desc") {
-            list.sort((a, b) => b.price - a.price);
-        }
+            card.className =
+                "bat-trang-product-card";
 
-        if (currentSort === "name") {
-            list.sort((a, b) =>
-                a.name.localeCompare(b.name, "vi")
-            );
-        }
-
-        /* Không chia danh mục */
-        grid.innerHTML = "";
-
-        if (list.length === 0) {
-            grid.innerHTML = `
-                <div class="no-products">
-                    Không tìm thấy sản phẩm phù hợp.
-                </div>
-            `;
-            return;
-        }
-
-        list.forEach(product => {
-            const cartItem = cart.find(item => item.id === product.id);
-            const quantity = cartItem ? cartItem.quantity : 0;
-
-            const card = document.createElement("article");
-            card.className = "product-card";
 
             card.innerHTML = `
-                <div class="product-image-box"
-                     onclick="openProductDetail(${product.id})">
+
+                <div
+                    class="bat-trang-product-image"
+                    onclick="openProduct(${product.id})"
+                >
 
                     <img
-                        src="${escapeHTML(product.image)}"
-                        alt="${escapeHTML(product.name)}"
+                        src="${product.image}"
+                        alt="${product.name}"
                         loading="lazy"
-                        onerror="this.onerror=null; this.src='data:image/svg+xml;charset=UTF-8,${encodeURIComponent(`
-                            <svg xmlns="http://www.w3.org/2000/svg" width="600" height="500">
-                                <rect width="100%" height="100%" fill="#eee7dc"/>
-                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-                                      font-family="Arial" font-size="22" fill="#6b4423">
-                                    Hình ảnh sản phẩm
-                                </text>
-                            </svg>
-                        `)}';"
                     >
+
                 </div>
 
-                <div class="product-content">
+
+                <div class="bat-trang-product-info">
 
                     <h3
-                        class="product-name"
-                        onclick="openProductDetail(${product.id})"
+                        onclick="openProduct(${product.id})"
                     >
-                        ${escapeHTML(product.name)}
+                        ${product.name}
                     </h3>
 
-                    <div class="product-price">
+
+                    <div class="bat-trang-price">
                         ${formatPrice(product.price)}
                     </div>
 
-                    <div class="product-actions">
 
-                        <div class="quantity-control">
+                    <div class="bat-trang-buy-row">
+
+                        <div class="bat-trang-quantity">
 
                             <button
-                                type="button"
-                                class="quantity-btn"
                                 onclick="changeQuantity(${product.id}, -1)"
                             >
                                 −
                             </button>
 
-                            <span id="quantity-${product.id}">
+                            <span>
                                 ${quantity}
                             </span>
 
                             <button
-                                type="button"
-                                class="quantity-btn"
                                 onclick="changeQuantity(${product.id}, 1)"
                             >
                                 +
@@ -394,9 +384,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         </div>
 
+
                         <button
-                            type="button"
-                            class="add-cart-btn"
+                            class="bat-trang-add"
                             onclick="addToCart(${product.id})"
                         >
                             Thêm giỏ hàng
@@ -404,10 +394,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     </div>
 
+
                     <button
-                        type="button"
-                        class="detail-btn"
-                        onclick="openProductDetail(${product.id})"
+                        class="bat-trang-detail"
+                        onclick="openProduct(${product.id})"
                     >
                         Xem chi tiết
                     </button>
@@ -415,214 +405,263 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
 
-            grid.appendChild(card);
+
+            productGrid.appendChild(card);
+
         });
+
     }
 
 
     /* =====================================================
-       5. TÌM KIẾM
+       THAY ĐỔI SỐ LƯỢNG
        ===================================================== */
 
-    function setupSearch() {
-        const searchInput =
-            document.querySelector("#searchInput") ||
-            document.querySelector("#productSearch") ||
-            document.querySelector(".search-input");
+    window.changeQuantity =
+        function (productId, change) {
 
-        if (!searchInput) return;
-
-        searchInput.addEventListener("input", event => {
-            currentSearch = event.target.value;
-            renderProducts();
-        });
-    }
+            const existing =
+                cart.find(
+                    item =>
+                        item.id === productId
+                );
 
 
-    /* =====================================================
-       6. SẮP XẾP
-       ===================================================== */
+            if (!existing) {
 
-    function setupSort() {
-        const sortSelect =
-            document.querySelector("#sortSelect") ||
-            document.querySelector("#sortProducts");
+                if (change > 0) {
 
-        if (!sortSelect) return;
+                    cart.push({
+                        id: productId,
+                        quantity: 1
+                    });
 
-        sortSelect.addEventListener("change", event => {
-            currentSort = event.target.value;
-            renderProducts();
-        });
-    }
+                }
 
+            } else {
 
-    /* =====================================================
-       7. SỐ LƯỢNG SẢN PHẨM
-       ===================================================== */
+                existing.quantity += change;
 
-    window.changeQuantity = function (productId, amount) {
-        const product = products.find(item => item.id === productId);
+                if (existing.quantity <= 0) {
 
-        if (!product) return;
+                    cart =
+                        cart.filter(
+                            item =>
+                                item.id !== productId
+                        );
 
-        let item = cart.find(item => item.id === productId);
+                }
 
-        if (!item) {
-            if (amount <= 0) return;
-
-            item = {
-                id: productId,
-                quantity: amount
-            };
-
-            cart.push(item);
-        } else {
-            item.quantity += amount;
-
-            if (item.quantity <= 0) {
-                cart = cart.filter(item => item.id !== productId);
             }
-        }
 
-        saveCart();
-        renderProducts();
-        renderCart();
-    };
+
+            saveCart();
+            renderProducts();
+            renderCart();
+
+        };
 
 
     /* =====================================================
-       8. THÊM GIỎ HÀNG
+       THÊM GIỎ HÀNG
        ===================================================== */
 
-    window.addToCart = function (productId) {
-        const product = products.find(item => item.id === productId);
+    window.addToCart =
+        function (productId) {
 
-        if (!product) return;
+            const existing =
+                cart.find(
+                    item =>
+                        item.id === productId
+                );
 
-        const existing = cart.find(item => item.id === productId);
 
-        if (existing) {
-            existing.quantity += 1;
-        } else {
-            cart.push({
-                id: productId,
-                quantity: 1
-            });
-        }
+            if (existing) {
 
-        saveCart();
-        renderProducts();
-        renderCart();
+                existing.quantity++;
 
-        showMessage("Đã thêm sản phẩm vào giỏ hàng.");
-    };
+            } else {
+
+                cart.push({
+                    id: productId,
+                    quantity: 1
+                });
+
+            }
+
+
+            saveCart();
+            renderProducts();
+            renderCart();
+
+            showNotice(
+                "Đã thêm sản phẩm vào giỏ hàng."
+            );
+
+        };
 
 
     /* =====================================================
-       9. LƯU GIỎ HÀNG
+       LƯU GIỎ
        ===================================================== */
 
     function saveCart() {
+
         localStorage.setItem(
             "batTrangCart",
             JSON.stringify(cart)
         );
+
     }
 
 
     /* =====================================================
-       10. TÍNH GIỎ HÀNG
+       XÓA GIỎ
        ===================================================== */
 
-    function getCartTotal() {
-        return cart.reduce((total, item) => {
-            const product = products.find(
-                product => product.id === item.id
-            );
+    window.removeFromCart =
+        function (productId) {
 
-            if (!product) return total;
+            cart =
+                cart.filter(
+                    item =>
+                        item.id !== productId
+                );
 
-            return total + product.price * item.quantity;
-        }, 0);
-    }
+            saveCart();
+
+            renderProducts();
+            renderCart();
+
+        };
 
 
     /* =====================================================
-       11. HIỂN THỊ GIỎ HÀNG
+       HIỂN THỊ GIỎ HÀNG
        ===================================================== */
 
     function renderCart() {
-        const cartContainer =
-            document.querySelector("#cartItems") ||
-            document.querySelector(".cart-items");
 
-        const cartTotal =
-            document.querySelector("#cartTotal") ||
-            document.querySelector(".cart-total");
+        const cartItems =
+            document.querySelector("#cartItems");
 
         const cartCount =
-            document.querySelector("#cartCount") ||
-            document.querySelector(".cart-count");
+            document.querySelector("#cartCount");
 
-        if (cartCount) {
-            const count = cart.reduce(
-                (total, item) => total + item.quantity,
+        const cartTotal =
+            document.querySelector("#cartTotal");
+
+
+        const totalQuantity =
+            cart.reduce(
+                (sum, item) =>
+                    sum + item.quantity,
                 0
             );
 
-            cartCount.textContent = count;
+
+        const totalPrice =
+            cart.reduce(
+                (sum, item) => {
+
+                    const product =
+                        products.find(
+                            p =>
+                                p.id === item.id
+                        );
+
+                    if (!product) {
+                        return sum;
+                    }
+
+                    return (
+                        sum +
+                        product.price *
+                        item.quantity
+                    );
+
+                },
+                0
+            );
+
+
+        if (cartCount) {
+
+            cartCount.textContent =
+                totalQuantity;
+
         }
 
-        if (!cartContainer) return;
+
+        if (cartTotal) {
+
+            cartTotal.textContent =
+                formatPrice(totalPrice);
+
+        }
+
+
+        if (!cartItems) {
+            return;
+        }
+
 
         if (cart.length === 0) {
-            cartContainer.innerHTML = `
-                <div class="empty-cart">
-                    Giỏ hàng đang trống.
-                </div>
-            `;
 
-            if (cartTotal) {
-                cartTotal.textContent = formatPrice(0);
-            }
+            cartItems.innerHTML = `
+                <p class="empty-cart">
+                    Giỏ hàng đang trống.
+                </p>
+            `;
 
             return;
         }
 
-        cartContainer.innerHTML = "";
 
-        cart.forEach(item => {
-            const product = products.find(
-                product => product.id === item.id
-            );
+        cartItems.innerHTML = "";
 
-            if (!product) return;
 
-            const itemElement = document.createElement("div");
+        cart.forEach(function (item) {
 
-            itemElement.className = "cart-item";
+            const product =
+                products.find(
+                    p =>
+                        p.id === item.id
+                );
 
-            itemElement.innerHTML = `
+
+            if (!product) {
+                return;
+            }
+
+
+            const row =
+                document.createElement("div");
+
+            row.className =
+                "bat-trang-cart-item";
+
+
+            row.innerHTML = `
+
                 <img
-                    src="${escapeHTML(product.image)}"
-                    alt="${escapeHTML(product.name)}"
+                    src="${product.image}"
+                    alt="${product.name}"
                 >
 
-                <div class="cart-item-info">
+                <div>
 
-                    <h4>
-                        ${escapeHTML(product.name)}
-                    </h4>
+                    <strong>
+                        ${product.name}
+                    </strong>
 
                     <p>
                         ${formatPrice(product.price)}
                     </p>
 
-                    <div class="cart-quantity">
+                    <div>
 
                         <button
-                            type="button"
                             onclick="changeQuantity(${product.id}, -1)"
                         >
                             −
@@ -633,7 +672,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         </span>
 
                         <button
-                            type="button"
                             onclick="changeQuantity(${product.id}, 1)"
                         >
                             +
@@ -642,8 +680,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
 
                     <button
-                        type="button"
-                        class="remove-cart-btn"
                         onclick="removeFromCart(${product.id})"
                     >
                         Xóa
@@ -652,143 +688,125 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
 
-            cartContainer.appendChild(itemElement);
+
+            cartItems.appendChild(row);
+
         });
 
-        if (cartTotal) {
-            cartTotal.textContent =
-                formatPrice(getCartTotal());
-        }
     }
 
 
     /* =====================================================
-       12. XÓA SẢN PHẨM KHỎI GIỎ
+       CHI TIẾT SẢN PHẨM
        ===================================================== */
 
-    window.removeFromCart = function (productId) {
-        cart = cart.filter(
-            item => item.id !== productId
-        );
+    window.openProduct =
+        function (productId) {
 
-        saveCart();
-        renderProducts();
-        renderCart();
-    };
-
-
-    /* =====================================================
-       13. XÓA TOÀN BỘ GIỎ
-       ===================================================== */
-
-    window.clearCart = function () {
-        cart = [];
-
-        saveCart();
-        renderProducts();
-        renderCart();
-    };
+            const product =
+                products.find(
+                    p =>
+                        p.id === productId
+                );
 
 
-    /* =====================================================
-       14. MODAL CHI TIẾT SẢN PHẨM
-       ===================================================== */
+            if (!product) {
+                return;
+            }
 
-    window.openProductDetail = function (productId) {
-        const product = products.find(
-            item => item.id === productId
-        );
 
-        if (!product) return;
+            let modal =
+                document.querySelector(
+                    "#batTrangProductModal"
+                );
 
-        let modal = document.querySelector("#productModal");
 
-        if (!modal) {
-            modal = document.createElement("div");
+            if (!modal) {
 
-            modal.id = "productModal";
-            modal.className = "product-modal";
+                modal =
+                    document.createElement("div");
 
-            document.body.appendChild(modal);
-        }
+                modal.id =
+                    "batTrangProductModal";
 
-        modal.innerHTML = `
-            <div class="modal-overlay"
-                 onclick="closeProductDetail(event)">
+                document.body.appendChild(
+                    modal
+                );
 
-                <div class="product-modal-content"
-                     onclick="event.stopPropagation()">
+            }
 
-                    <button
-                        type="button"
-                        class="modal-close"
-                        onclick="closeProductDetail()"
-                    >
-                        ×
-                    </button>
 
-                    <div class="modal-product-image">
-                        <img
-                            src="${escapeHTML(product.image)}"
-                            alt="${escapeHTML(product.name)}"
+            modal.innerHTML = `
+
+                <div class="bat-trang-modal-overlay">
+
+                    <div class="bat-trang-modal">
+
+                        <button
+                            class="bat-trang-modal-close"
+                            onclick="closeProduct()"
                         >
-                    </div>
+                            ×
+                        </button>
 
-                    <div class="modal-product-info">
 
-                        <h2>
-                            ${escapeHTML(product.name)}
-                        </h2>
+                        <div class="bat-trang-modal-image">
 
-                        <div class="modal-price">
-                            ${formatPrice(product.price)}
-                        </div>
-
-                        <div class="product-description">
-
-                            <p>
-                                <strong>Xuất xứ:</strong>
-                                ${escapeHTML(product.origin)}
-                            </p>
-
-                            <p>
-                                <strong>Chất liệu:</strong>
-                                ${escapeHTML(product.material)}
-                            </p>
-
-                            <p>
-                                <strong>Kích thước:</strong>
-                                ${escapeHTML(product.size)}
-                            </p>
-
-                            <p>
-                                <strong>Kỹ thuật:</strong>
-                                ${escapeHTML(product.technique)}
-                            </p>
-
-                            <p>
-                                <strong>Mô tả:</strong>
-                                ${escapeHTML(product.description)}
-                            </p>
+                            <img
+                                src="${product.image}"
+                                alt="${product.name}"
+                            >
 
                         </div>
 
-                        <div class="modal-actions">
+
+                        <div class="bat-trang-modal-info">
+
+                            <h2>
+                                ${product.name}
+                            </h2>
+
+
+                            <div class="bat-trang-modal-price">
+                                ${formatPrice(product.price)}
+                            </div>
+
+
+                            <div class="bat-trang-description">
+
+                                <p>
+                                    <b>Xuất xứ:</b>
+                                    ${product.origin}
+                                </p>
+
+                                <p>
+                                    <b>Chất liệu:</b>
+                                    ${product.material}
+                                </p>
+
+                                <p>
+                                    <b>Kích thước:</b>
+                                    ${product.size}
+                                </p>
+
+                                <p>
+                                    <b>Kỹ thuật:</b>
+                                    ${product.technique}
+                                </p>
+
+                                <p>
+                                    <b>Thông tin:</b>
+                                    ${product.description}
+                                </p>
+
+                            </div>
+
 
                             <button
-                                type="button"
-                                class="add-cart-btn"
-                                onclick="addToCart(${product.id}); closeProductDetail();"
+                                class="bat-trang-add modal-add"
+                                onclick="addToCart(${product.id}); closeProduct();"
                             >
                                 Thêm vào giỏ hàng
-                            </button>
-
-                            <button
-                                type="button"
-                                class="buy-now-btn"
-                                onclick="buyNow(${product.id})"
-                            >
-                                Mua ngay
                             </button>
 
                         </div>
@@ -796,777 +814,832 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
 
                 </div>
-            </div>
-        `;
-
-        modal.classList.add("active");
-
-        document.body.style.overflow = "hidden";
-    };
+            `;
 
 
-    window.closeProductDetail = function (event) {
-        if (
-            event &&
-            event.target &&
-            !event.target.classList.contains("modal-overlay")
-        ) {
-            return;
-        }
+            modal.style.display = "block";
 
-        const modal =
-            document.querySelector("#productModal");
+            document.body.style.overflow =
+                "hidden";
 
-        if (modal) {
-            modal.classList.remove("active");
-        }
-
-        document.body.style.overflow = "";
-    };
+        };
 
 
     /* =====================================================
-       15. MUA NGAY
+       ĐÓNG CHI TIẾT
        ===================================================== */
 
-    window.buyNow = function (productId) {
-        const product = products.find(
-            item => item.id === productId
-        );
+    window.closeProduct =
+        function () {
 
-        if (!product) return;
-
-        const existing = cart.find(
-            item => item.id === productId
-        );
-
-        if (existing) {
-            existing.quantity += 1;
-        } else {
-            cart.push({
-                id: productId,
-                quantity: 1
-            });
-        }
-
-        saveCart();
-        renderProducts();
-        renderCart();
-
-        closeProductDetail();
-
-        const orderForm =
-            document.querySelector("#orderForm");
-
-        if (orderForm) {
-            orderForm.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        } else {
-            showMessage(
-                "Đã thêm sản phẩm. Vui lòng kiểm tra giỏ hàng để đặt mua."
-            );
-        }
-    };
-
-
-    /* =====================================================
-       16. FORM ĐẶT HÀNG
-       ===================================================== */
-
-    function setupOrderForm() {
-        const form =
-            document.querySelector("#orderForm");
-
-        if (!form) return;
-
-        form.addEventListener("submit", event => {
-            event.preventDefault();
-
-            if (cart.length === 0) {
-                showMessage(
-                    "Vui lòng thêm sản phẩm vào giỏ hàng trước khi đặt hàng."
+            const modal =
+                document.querySelector(
+                    "#batTrangProductModal"
                 );
 
-                return;
+
+            if (modal) {
+
+                modal.style.display =
+                    "none";
+
             }
 
-            const name =
-                form.querySelector('[name="name"]')?.value.trim();
 
-            const phone =
-                form.querySelector('[name="phone"]')?.value.trim();
+            document.body.style.overflow =
+                "";
 
-            const address =
-                form.querySelector('[name="address"]')?.value.trim();
-
-            const payment =
-                form.querySelector('[name="payment"]')?.value;
-
-            if (!name || !phone || !address) {
-                showMessage(
-                    "Vui lòng nhập đầy đủ họ tên, số điện thoại và địa chỉ."
-                );
-
-                return;
-            }
-
-            const order = {
-                customer: {
-                    name,
-                    phone,
-                    address
-                },
-
-                payment: payment || "Thanh toán khi nhận hàng",
-
-                products: cart.map(item => {
-                    const product = products.find(
-                        product => product.id === item.id
-                    );
-
-                    return {
-                        id: product.id,
-                        name: product.name,
-                        quantity: item.quantity,
-                        price: product.price,
-                        total:
-                            product.price *
-                            item.quantity
-                    };
-                }),
-
-                total: getCartTotal(),
-
-                createdAt: new Date().toISOString()
-            };
-
-            console.log(
-                "ĐƠN HÀNG:",
-                order
-            );
-
-            localStorage.setItem(
-                "lastBatTrangOrder",
-                JSON.stringify(order)
-            );
-
-            showMessage(
-                "Đặt hàng thành công! Cảm ơn bạn đã mua sản phẩm."
-            );
-
-            cart = [];
-
-            saveCart();
-            renderProducts();
-            renderCart();
-
-            form.reset();
-        });
-    }
+        };
 
 
     /* =====================================================
-       17. FORM TƯ VẤN
+       THÔNG BÁO
        ===================================================== */
 
-    function setupConsultationForm() {
-        const form =
-            document.querySelector("#consultationForm");
+    function showNotice(message) {
 
-        if (!form) return;
-
-        form.addEventListener("submit", event => {
-            event.preventDefault();
-
-            const name =
-                form.querySelector('[name="name"]')?.value.trim();
-
-            const phone =
-                form.querySelector('[name="phone"]')?.value.trim();
-
-            if (!name || !phone) {
-                showMessage(
-                    "Vui lòng nhập họ tên và số điện thoại."
-                );
-
-                return;
-            }
-
-            const consultation = {
-                name,
-                phone,
-                createdAt: new Date().toISOString()
-            };
-
-            localStorage.setItem(
-                "lastConsultation",
-                JSON.stringify(consultation)
+        let notice =
+            document.querySelector(
+                "#batTrangNotice"
             );
 
-            console.log(
-                "YÊU CẦU TƯ VẤN:",
-                consultation
+
+        if (!notice) {
+
+            notice =
+                document.createElement("div");
+
+            notice.id =
+                "batTrangNotice";
+
+
+            document.body.appendChild(
+                notice
             );
 
-            showMessage(
-                "Đã gửi yêu cầu tư vấn. Chúng tôi sẽ liên hệ với bạn."
-            );
-
-            form.reset();
-        });
-    }
-
-
-    /* =====================================================
-       18. THÔNG BÁO
-       ===================================================== */
-
-    function showMessage(message) {
-        let box =
-            document.querySelector("#siteMessage");
-
-        if (!box) {
-            box = document.createElement("div");
-
-            box.id = "siteMessage";
-
-            box.style.position = "fixed";
-            box.style.right = "20px";
-            box.style.bottom = "20px";
-            box.style.zIndex = "99999";
-            box.style.background = "#6b4423";
-            box.style.color = "#fff";
-            box.style.padding = "14px 20px";
-            box.style.borderRadius = "12px";
-            box.style.boxShadow =
-                "0 8px 25px rgba(0,0,0,.2)";
-            box.style.fontFamily =
-                "inherit";
-            box.style.transition =
-                "opacity .3s ease";
-
-            document.body.appendChild(box);
         }
 
-        box.textContent = message;
-        box.style.opacity = "1";
 
-        clearTimeout(
-            window.messageTimeout
+        notice.textContent =
+            message;
+
+
+        notice.classList.add(
+            "show"
         );
 
-        window.messageTimeout = setTimeout(() => {
-            box.style.opacity = "0";
-        }, 3000);
+
+        setTimeout(function () {
+
+            notice.classList.remove(
+                "show"
+            );
+
+        }, 2500);
+
     }
 
 
     /* =====================================================
-       19. NÚT MỞ / ĐÓNG GIỎ HÀNG
+       CSS
        ===================================================== */
 
-    function setupCartButtons() {
-        const openButtons =
-            document.querySelectorAll(
-                "#cartButton, .cart-button, [data-cart-open]"
-            );
+    const style =
+        document.createElement("style");
 
-        const cartBox =
-            document.querySelector("#cartBox") ||
-            document.querySelector(".cart-box");
-
-        const closeButtons =
-            document.querySelectorAll(
-                "#closeCart, .close-cart, [data-cart-close]"
-            );
-
-        openButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                if (!cartBox) return;
-
-                cartBox.classList.add("active");
-                renderCart();
-            });
-        });
-
-        closeButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                if (!cartBox) return;
-
-                cartBox.classList.remove("active");
-            });
-        });
-    }
-
-
-    /* =====================================================
-       20. NÚT ESC ĐÓNG MODAL
-       ===================================================== */
-
-    document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
-            closeProductDetail();
-
-            const cartBox =
-                document.querySelector("#cartBox") ||
-                document.querySelector(".cart-box");
-
-            if (cartBox) {
-                cartBox.classList.remove("active");
-            }
-        }
-    });
-
-
-    /* =====================================================
-       21. TẠO CSS CƠ BẢN TỪ CHÍNH SCRIPT.JS
-       
-       Không cần sửa CSS nếu muốn dùng giao diện mặc định.
-       ===================================================== */
-
-    const style = document.createElement("style");
 
     style.textContent = `
 
-        /* ================================
-           PRODUCT GRID
-           ================================ */
+        /* =========================================
+           ÉP TOÀN TRANG KHÔNG BÓ SẢN PHẨM
+           ========================================= */
 
-        .product-grid,
-        #productGrid,
-        #products {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 24px;
+        html,
+        body {
             width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
 
-        /* ================================
-           PRODUCT CARD
-           ================================ */
+        /* =========================================
+           KHỐI SẢN PHẨM FULL WIDTH
+           ========================================= */
 
-        .product-card {
-            background: #fff;
-            border: 1px solid #eadfd2;
-            border-radius: 18px;
+        #productGrid,
+        .product-grid,
+        #products {
+
+            width: 100% !important;
+
+            max-width: none !important;
+
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+
+            padding: 35px 4vw !important;
+
+            box-sizing: border-box;
+
+            display: grid !important;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr)) !important;
+
+            gap: 28px !important;
+
+            align-items: start;
+
+        }
+
+
+        /* =========================================
+           CARD
+           ========================================= */
+
+        .bat-trang-product-card {
+
+            width: 100%;
+
+            min-width: 0;
+
+            box-sizing: border-box;
+
+            background: #ffffff;
+
+            border: 1px solid #e3d4c5;
+
+            border-radius: 16px;
+
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(80, 50, 25, .08);
+
+            box-shadow:
+                0 5px 18px
+                rgba(78, 48, 25, .10);
+
             transition:
                 transform .25s ease,
                 box-shadow .25s ease;
-        }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(80, 50, 25, .15);
         }
 
 
-        /* ================================
+        .bat-trang-product-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(78, 48, 25, .16);
+
+        }
+
+
+        /* =========================================
            HÌNH FULL KHUNG
-           ================================ */
+           ========================================= */
 
-        .product-image-box {
+        .bat-trang-product-image {
+
             width: 100%;
+
             height: 330px;
+
             overflow: hidden;
-            background: #f3eee7;
+
+            background: #eee6dc;
+
             cursor: pointer;
+
         }
 
-        .product-image-box img {
+
+        .bat-trang-product-image img {
+
             width: 100%;
+
             height: 100%;
+
             display: block;
+
             object-fit: cover;
-            transition: transform .35s ease;
-        }
 
-        .product-card:hover
-        .product-image-box img {
-            transform: scale(1.04);
-        }
+            transition:
+                transform .35s ease;
 
-
-        /* ================================
-           PRODUCT CONTENT
-           ================================ */
-
-        .product-content {
-            padding: 17px;
-        }
-
-        .product-name {
-            margin: 0 0 9px;
-            color: #5b351b;
-            font-size: 18px;
-            line-height: 1.4;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .product-name:hover {
-            color: #8b5a2b;
-        }
-
-        .product-price {
-            color: #9a5b25;
-            font-size: 19px;
-            font-weight: 700;
-            margin-bottom: 15px;
         }
 
 
-        /* ================================
-           QUANTITY + ADD CART
-           ================================ */
+        .bat-trang-product-card:hover
+        .bat-trang-product-image img {
 
-        .product-actions {
-            display: flex;
-            align-items: center;
-            gap: 9px;
-        }
+            transform:
+                scale(1.05);
 
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #d8c7b5;
-            border-radius: 10px;
-            overflow: hidden;
-            min-width: 92px;
-            height: 42px;
-            background: #fff;
-        }
-
-        .quantity-control button {
-            width: 30px;
-            height: 100%;
-            border: 0;
-            background: transparent;
-            color: #6b4423;
-            font-size: 21px;
-            cursor: pointer;
-        }
-
-        .quantity-control button:hover {
-            background: #f2e8dc;
-        }
-
-        .quantity-control span {
-            min-width: 28px;
-            text-align: center;
-            color: #4c301c;
-            font-weight: 600;
-        }
-
-        .add-cart-btn,
-        .buy-now-btn {
-            border: 0;
-            border-radius: 10px;
-            padding: 11px 14px;
-            background: #6b4423;
-            color: #fff;
-            cursor: pointer;
-            font-family: inherit;
-            font-weight: 600;
-            transition: background .2s ease;
-        }
-
-        .add-cart-btn:hover,
-        .buy-now-btn:hover {
-            background: #4e3019;
         }
 
 
-        /* ================================
-           DETAIL BUTTON
-           ================================ */
+        /* =========================================
+           THÔNG TIN BÊN DƯỚI HÌNH
+           ========================================= */
 
-        .detail-btn {
-            width: 100%;
-            margin-top: 11px;
-            padding: 10px;
-            border: 1px solid #c9ad92;
-            border-radius: 10px;
-            background: transparent;
-            color: #6b4423;
-            cursor: pointer;
-            font-family: inherit;
-            font-weight: 600;
-        }
+        .bat-trang-product-info {
 
-        .detail-btn:hover {
-            background: #f6eee6;
-        }
-
-
-        /* ================================
-           MODAL
-           ================================ */
-
-        .product-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 9990;
-            display: none;
-        }
-
-        .product-modal.active {
-            display: block;
-        }
-
-        .modal-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(35, 24, 15, .65);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
-        }
-
-        .product-modal-content {
-            width: min(950px, 100%);
-            max-height: 90vh;
-            overflow-y: auto;
-            background: #fff;
-            border-radius: 20px;
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            padding: 25px;
-            color: #6b4423;
-        }
-
-        .modal-close {
-            position: absolute;
-            right: 15px;
-            top: 10px;
-            width: 40px;
-            height: 40px;
-            border: 0;
-            border-radius: 50%;
-            background: #f1e8df;
-            color: #5b351b;
-            font-size: 27px;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .modal-product-image {
-            width: 100%;
-            min-height: 400px;
-            border-radius: 14px;
-            overflow: hidden;
-            background: #f2ece5;
-        }
-
-        .modal-product-image img {
-            width: 100%;
-            height: 100%;
-            min-height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .modal-product-info {
-            padding: 20px 15px;
-        }
-
-        .modal-product-info h2 {
-            color: #5b351b;
-            margin-top: 0;
-            line-height: 1.35;
-        }
-
-        .modal-price {
-            color: #9a5b25;
-            font-size: 25px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .product-description {
-            border: 1px solid #d8c7b5;
-            border-radius: 14px;
             padding: 16px;
-            color: #6b4423;
-            line-height: 1.65;
-        }
 
-        .product-description p {
-            margin: 0 0 10px;
-        }
+            box-sizing: border-box;
 
-        .product-description p:last-child {
-            margin-bottom: 0;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 18px;
         }
 
 
-        /* ================================
-           CART
-           ================================ */
+        .bat-trang-product-info h3 {
 
-        .cart-item {
-            display: flex;
-            gap: 12px;
-            padding: 13px 0;
-            border-bottom: 1px solid #eadfd2;
+            margin: 0 0 9px;
+
+            color: #5c351b;
+
+            font-family: inherit;
+
+            font-size: 18px;
+
+            line-height: 1.4;
+
+            cursor: pointer;
+
         }
 
-        .cart-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
 
-        .cart-item-info {
-            flex: 1;
-        }
+        .bat-trang-product-info h3:hover {
 
-        .cart-item-info h4 {
-            margin: 0 0 5px;
-            color: #5b351b;
-        }
-
-        .cart-item-info p {
-            margin: 0 0 8px;
             color: #9a5b25;
+
+        }
+
+
+        .bat-trang-price {
+
+            color: #a35f25;
+
+            font-size: 19px;
+
             font-weight: 700;
+
+            margin-bottom: 14px;
+
         }
 
-        .cart-quantity {
+
+        /* =========================================
+           SỐ LƯỢNG + GIỎ
+           ========================================= */
+
+        .bat-trang-buy-row {
+
             display: flex;
+
+            width: 100%;
+
+            gap: 8px;
+
+            align-items: stretch;
+
+        }
+
+
+        .bat-trang-quantity {
+
+            height: 42px;
+
+            display: flex;
+
             align-items: center;
-            gap: 10px;
+
+            border: 1px solid #d6c4b2;
+
+            border-radius: 9px;
+
+            overflow: hidden;
+
+            flex-shrink: 0;
+
         }
 
-        .cart-quantity button {
-            border: 1px solid #d8c7b5;
-            background: #fff;
-            width: 30px;
-            height: 30px;
-            border-radius: 7px;
-            cursor: pointer;
-        }
 
-        .remove-cart-btn {
-            margin-top: 7px;
+        .bat-trang-quantity button {
+
+            width: 32px;
+
+            height: 100%;
+
             border: 0;
-            background: none;
-            color: #a33;
+
+            background: #faf7f3;
+
+            color: #603a20;
+
+            font-size: 20px;
+
             cursor: pointer;
+
         }
 
 
-        /* ================================
-           EMPTY
-           ================================ */
+        .bat-trang-quantity span {
 
-        .empty-cart,
-        .no-products {
-            padding: 30px;
+            width: 28px;
+
             text-align: center;
-            color: #765b42;
-            border-radius: 14px;
-            background: #f8f3ed;
+
+            color: #5c351b;
+
+            font-weight: 600;
+
         }
 
 
-        /* ================================
-           RESPONSIVE
-           ================================ */
+        .bat-trang-add {
+
+            flex: 1;
+
+            min-width: 0;
+
+            height: 42px;
+
+            border: 0;
+
+            border-radius: 9px;
+
+            background: #6b4423;
+
+            color: white;
+
+            padding: 0 10px;
+
+            font-family: inherit;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+        }
+
+
+        .bat-trang-add:hover {
+
+            background: #4d2e17;
+
+        }
+
+
+        /* =========================================
+           XEM CHI TIẾT
+           ========================================= */
+
+        .bat-trang-detail {
+
+            width: 100%;
+
+            height: 40px;
+
+            margin-top: 9px;
+
+            border: 1px solid #c9b29b;
+
+            border-radius: 9px;
+
+            background: white;
+
+            color: #6b4423;
+
+            font-family: inherit;
+
+            cursor: pointer;
+
+        }
+
+
+        .bat-trang-detail:hover {
+
+            background: #f6eee7;
+
+        }
+
+
+        /* =========================================
+           MODAL
+           ========================================= */
+
+        #batTrangProductModal {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 99999;
+
+        }
+
+
+        .bat-trang-modal-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(30, 20, 12, .70);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            box-sizing: border-box;
+
+        }
+
+
+        .bat-trang-modal {
+
+            position: relative;
+
+            width: min(950px, 100%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 24px;
+
+            box-sizing: border-box;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 25px;
+
+        }
+
+
+        .bat-trang-modal-close {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 12px;
+
+            width: 40px;
+
+            height: 40px;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background: #f1e8df;
+
+            color: #5c351b;
+
+            font-size: 27px;
+
+            cursor: pointer;
+
+            z-index: 5;
+
+        }
+
+
+        .bat-trang-modal-image {
+
+            height: 450px;
+
+            overflow: hidden;
+
+            border-radius: 14px;
+
+            background: #eee6dc;
+
+        }
+
+
+        .bat-trang-modal-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+        }
+
+
+        .bat-trang-modal-info {
+
+            color: #6b4423;
+
+            padding: 15px;
+
+        }
+
+
+        .bat-trang-modal-info h2 {
+
+            margin-top: 0;
+
+            color: #5c351b;
+
+            line-height: 1.4;
+
+        }
+
+
+        .bat-trang-modal-price {
+
+            color: #a35f25;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .bat-trang-description {
+
+            border: 1px solid #d8c6b4;
+
+            border-radius: 12px;
+
+            padding: 15px;
+
+            line-height: 1.7;
+
+            color: #6b4423;
+
+        }
+
+
+        .bat-trang-description p {
+
+            margin: 0 0 9px;
+
+        }
+
+
+        .modal-add {
+
+            width: 100%;
+
+            margin-top: 18px;
+
+        }
+
+
+        /* =========================================
+           THÔNG BÁO
+           ========================================= */
+
+        #batTrangNotice {
+
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            z-index: 100000;
+
+            background: #6b4423;
+
+            color: white;
+
+            padding: 14px 20px;
+
+            border-radius: 10px;
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            pointer-events: none;
+
+            transition:
+                all .3s ease;
+
+        }
+
+
+        #batTrangNotice.show {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        /* =========================================
+           DESKTOP RẤT RỘNG
+           ========================================= */
+
+        @media (min-width: 1600px) {
+
+            #productGrid,
+            .product-grid,
+            #products {
+
+                grid-template-columns:
+                    repeat(5, minmax(0, 1fr))
+                    !important;
+
+                padding-left: 3vw !important;
+                padding-right: 3vw !important;
+
+            }
+
+        }
+
+
+        /* =========================================
+           TABLET
+           ========================================= */
 
         @media (max-width: 1100px) {
-            .product-grid,
+
             #productGrid,
+            .product-grid,
             #products {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
+
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr))
+                    !important;
+
             }
+
         }
 
-        @media (max-width: 800px) {
-            .product-grid,
+
+        /* =========================================
+           TABLET NHỎ
+           ========================================= */
+
+        @media (max-width: 750px) {
+
             #productGrid,
-            #products {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .product-image-box {
-                height: 280px;
-            }
-
-            .product-modal-content {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 520px) {
             .product-grid,
-            #productGrid,
             #products {
-                grid-template-columns: 1fr;
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr))
+                    !important;
+
+                gap: 15px !important;
+
+                padding: 20px 15px !important;
+
             }
 
-            .product-image-box {
-                height: 330px;
+
+            .bat-trang-product-image {
+
+                height: 260px;
+
             }
 
-            .product-actions {
+
+            .bat-trang-product-info {
+
+                padding: 12px;
+
+            }
+
+
+            .bat-trang-product-info h3 {
+
+                font-size: 16px;
+
+            }
+
+
+            .bat-trang-buy-row {
+
                 flex-direction: column;
-                align-items: stretch;
+
             }
 
-            .quantity-control {
+
+            .bat-trang-quantity {
+
                 width: 100%;
+
+                justify-content: center;
+
             }
 
-            .modal-overlay {
-                padding: 10px;
+
+            .bat-trang-add {
+
+                width: 100%;
+
             }
 
-            .product-modal-content {
+
+            .bat-trang-modal {
+
+                grid-template-columns: 1fr;
+
                 padding: 15px;
+
             }
+
+
+            .bat-trang-modal-image {
+
+                height: 300px;
+
+            }
+
+        }
+
+
+        /* =========================================
+           ĐIỆN THOẠI
+           ========================================= */
+
+        @media (max-width: 480px) {
+
+            #productGrid,
+            .product-grid,
+            #products {
+
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr))
+                    !important;
+
+                gap: 10px !important;
+
+                padding: 15px 10px !important;
+
+            }
+
+
+            .bat-trang-product-image {
+
+                height: 210px;
+
+            }
+
+
+            .bat-trang-product-info {
+
+                padding: 10px;
+
+            }
+
+
+            .bat-trang-product-info h3 {
+
+                font-size: 14px;
+
+            }
+
+
+            .bat-trang-price {
+
+                font-size: 16px;
+
+            }
+
         }
 
     `;
+
 
     document.head.appendChild(style);
 
 
     /* =====================================================
-       22. KHỞI CHẠY
+       KHỞI CHẠY
        ===================================================== */
 
     renderProducts();
+
     renderCart();
-
-    setupSearch();
-    setupSort();
-    setupOrderForm();
-    setupConsultationForm();
-    setupCartButtons();
-
-
-    /* =====================================================
-       23. CHO PHÉP HTML GỌI LẠI DỮ LIỆU
-       ===================================================== */
-
-    window.batTrangProducts = products;
-
-    window.batTrangCart = cart;
 
 });
