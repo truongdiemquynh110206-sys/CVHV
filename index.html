@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CHẠM VÀO HỒN VIỆT | Gốm Bát Tràng</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style id="cham-hon-viet-premium-forms">
+        /* ===== KHU VỰC TƯ VẤN & ĐẶT HÀNG ===== */
+        .consultation-section,
+        .order-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .consultation-section {
+            background:
+                radial-gradient(circle at 8% 20%, rgba(184,145,104,.10), transparent 28%),
+                linear-gradient(135deg, #f8f2ea 0%, #fffdf9 55%, #f3e8dc 100%);
+            padding: 110px 0;
+        }
+
+        .consultation-section::before,
+        .order-section::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border: 1px solid rgba(145,103,70,.12);
+            border-radius: 50%;
+            right: -100px;
+            top: 70px;
+        }
+
+        .consultation-shell {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .consultation-intro {
+            max-width: 620px;
+        }
+
+        .eyebrow,
+        .form-kicker {
+            display: inline-block;
+            letter-spacing: .18em;
+            font-size: 11px;
+            font-weight: 700;
+            color: #9a704f;
+        }
+
+        .consultation-intro h2 {
+            margin: 14px 0 22px;
+            color: #4d382a;
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1.08;
+            font-weight: 500;
+        }
+
+        .consultation-intro h2 em {
+            font-family: "Great Vibes", cursive;
+            font-weight: 400;
+            color: #9b6e4b;
+            font-size: 1.12em;
+        }
+
+        .consultation-lead {
+            max-width: 560px;
+            color: #6d5b4d;
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        .consultation-hotline {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin: 28px 0 30px;
+            padding: 14px 22px;
+            border: 1px solid rgba(140,100,68,.22);
+            border-radius: 999px;
+            background: rgba(255,255,255,.66);
+            box-shadow: 0 12px 35px rgba(90,62,40,.06);
+        }
+
+        .hotline-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #8b6041;
+            color: #fff;
+            font-size: 18px;
+        }
+
+        .consultation-hotline small {
+            display: block;
+            margin-bottom: 2px;
+            color: #8d7562;
+            font-size: 9px;
+            letter-spacing: .15em;
+            font-weight: 700;
+        }
+
+        .consultation-hotline a {
+            color: #563d2c;
+            font-size: 22px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .consultation-note {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 12px 0;
+            color: #6d5b4d;
+        }
+
+        .consultation-note span {
+            width: 29px;
+            height: 29px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            border: 1px solid #d8c5b1;
+            color: #9a704f;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .consultation-note p {
+            margin: 0;
+        }
+
+        .customer-form,
+        .order-form-card,
+        .order-summary-card {
+            background: rgba(255,255,255,.82);
+            border: 1px solid rgba(140,100,68,.16);
+            box-shadow: 0 24px 70px rgba(75,52,36,.10);
+            backdrop-filter: blur(8px);
+        }
+
+        .customer-form {
+            padding: 38px;
+            border-radius: 24px;
+        }
+
+        .form-card-top,
+        .order-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .customer-form h3,
+        .order-form-card h3 {
+            margin: 7px 0 0;
+            color: #4d382a;
+            font-size: 27px;
+        }
+
+        .form-mark {
+            color: #a67853;
+            font-size: 22px;
+        }
+
+        .form-card-desc {
+            margin: 10px 0 28px;
+            color: #817063;
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+        .premium-field {
+            margin-bottom: 18px;
+        }
+
+        .premium-field label {
+            display: block;
+            margin-bottom: 8px;
+            color: #584536;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .03em;
+        }
+
+        .premium-field input,
+        .premium-field textarea,
+        .premium-field select {
+            width: 100%;
+            border: 1px solid #ddcfc0;
+            border-radius: 11px;
+            padding: 13px 15px;
+            outline: none;
+            background: #fffdfa;
+            color: #4f3d30;
+            font: inherit;
+            transition: .22s ease;
+        }
+
+        .premium-field textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .premium-field input:focus,
+        .premium-field textarea:focus,
+        .premium-field select:focus {
+            border-color: #a97a55;
+            box-shadow: 0 0 0 4px rgba(169,122,85,.10);
+            background: #fff;
+        }
+
+        .premium-submit {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            border: 0;
+            border-radius: 11px;
+            padding: 15px 18px;
+            background: #6e4c35;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .25s ease;
+        }
+
+        .premium-submit:hover {
+            background: #523925;
+            transform: translateY(-1px);
+            box-shadow: 0 12px 24px rgba(82,57,37,.18);
+        }
+
+        .privacy-note {
+            margin: 13px 0 0;
+            color: #938174;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        .order-section {
+            padding: 110px 0 120px;
+            background: #fffdf9;
+        }
+
+        .order-heading {
+            max-width: 720px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .order-heading p:last-child {
+            color: #776657;
+            line-height: 1.8;
+        }
+
+        .order-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        .order-form-card {
+            padding: 34px;
+            border-radius: 24px;
+        }
+
+        .order-step {
+            color: #9a704f;
+            font-size: 11px;
+            letter-spacing: .12em;
+            font-weight: 700;
+        }
+
+        .order-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 18px;
+            margin-top: 30px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .order-form-footer {
+            margin-top: 6px;
+            padding-top: 23px;
+            border-top: 1px solid #eadfd3;
+        }
+
+        .order-support {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            color: #725f50;
+            font-size: 13px;
+        }
+
+        .order-support a {
+            color: #8b6041;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .order-summary-card {
+            position: sticky;
+            top: 100px;
+            padding: 32px;
+            border-radius: 24px;
+            background:
+                linear-gradient(145deg, #fbf4eb, #f3e6d7);
+        }
+
+        .summary-ornament {
+            color: #a57956;
+            font-size: 35px;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .order-summary-card h3 {
+            margin: 7px 0 10px;
+            color: #4d382a;
+            font-size: 28px;
+        }
+
+        .summary-intro {
+            color: #776657;
+            line-height: 1.7;
+            font-size: 13px;
+        }
+
+        .summary-product {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(140,100,68,.14);
+            color: #806f60;
+            font-size: 12px;
+        }
+
+        .summary-product strong {
+            max-width: 60%;
+            color: #503b2d;
+            text-align: right;
+            line-height: 1.45;
+        }
+
+        .summary-divider {
+            height: 1px;
+            margin: 16px 0;
+            background: #d9c4af;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 15px;
+        }
+
+        .summary-total span {
+            color: #6f5b4c;
+        }
+
+        .summary-total strong {
+            color: #8b6041;
+            font-size: 22px;
+        }
+
+        .summary-hotline {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(140,100,68,.15);
+        }
+
+        .summary-hotline > span {
+            color: #a57956;
+        }
+
+        .summary-hotline p {
+            margin: 0;
+            color: #756253;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .summary-hotline a {
+            color: #6e4c35;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .consultation-shell,
+            .order-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .order-summary-card {
+                position: static;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .consultation-section,
+            .order-section {
+                padding: 75px 0;
+            }
+
+            .customer-form,
+            .order-form-card,
+            .order-summary-card {
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            .order-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .full-width {
+                grid-column: auto;
+            }
+
+            .consultation-intro h2 {
+                font-size: 40px;
+            }
+
+            .order-support {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+
+            <a href="index.html" class="logo">
+                CHẠM VÀO HỒN VIỆT
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Trang chủ</a>
+                <a href="#products">Sản phẩm</a>
+                <a href="battrang.html">Làng nghề</a>
+                <a href="battrang_history.html">Lịch sử</a>
+                <a href="#consultation">Tư vấn</a>
+                <a href="#order">Đặt hàng</a>
+            </nav>
+
+            <button class="cart-button" onclick="toggleCart()">
+                🛒 Giỏ hàng
+                <span id="cart-count">0</span>
+            </button>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+
+            <p class="hero-subtitle">
+                GỐM BÁT TRÀNG THỦ CÔNG
+            </p>
+
+            <h1>
+                Giao hòa Hồn Đất<br>
+                — Thư giãn Men Cổ —<br>
+                Trọn vẹn Tâm Người.
+            </h1>
+
+            <p class="hero-description">
+                Chắt lọc từ phù sa sông Hồng và bàn tay hoa mỹ của
+                người nghệ nhân Bát Tràng, mỗi tác phẩm gốm là một
+                nốt trầm cho không gian sống.
+            </p>
+
+            <p class="hero-description">
+                Mộc mạc, tinh tế và gần gũi, từng sản phẩm mang vào
+                ngôi nhà một cảm giác an yên, để vẻ đẹp truyền thống
+                hiện diện trong từng góc nhỏ yêu thương.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#products" class="btn btn-primary">
+                    Khám phá sản phẩm
+                </a>
+
+                <a href="#consultation" class="btn btn-outline">
+                    Tư vấn ngay
+                </a>
+            </div>
+
+            <div class="contact-highlight">
+                <span>☎ Tư vấn liên hệ:</span>
+                <a href="tel:0855337455">0855 337 455</a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GIỚI THIỆU -->
+    <section class="intro">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    CHẠM VÀO HỒN VIỆT
+                </p>
+
+                <h2>
+                    Gốm kể chuyện bằng đất và lửa
+                </h2>
+
+                <p>
+                    Mỗi sản phẩm Bát Tràng là sự kết hợp giữa đất,
+                    nước, lửa và đôi bàn tay người thợ. Từ những
+                    nguyên liệu giản dị, người nghệ nhân tạo nên
+                    những dáng hình mang giá trị vượt thời gian.
+                </p>
+
+            </div>
+
+            <div class="intro-grid">
+
+                <div class="intro-card">
+                    <div class="intro-icon">◌</div>
+                    <h3>Hồn Đất</h3>
+                    <p>
+                        Đất phù sa sông Hồng được chọn lọc và tạo hình
+                        bằng kỹ thuật thủ công truyền thống.
+                    </p>
+                </div>
+
+                <div class="intro-card">
+                    <div class="intro-icon">♨</div>
+                    <h3>Men Cổ</h3>
+                    <p>
+                        Những lớp men mang sắc thái riêng, từ men lam,
+                        men ngọc đến men trắng giản dị.
+                    </p>
+                </div>
+
+                <div class="intro-card">
+                    <div class="intro-icon">♡</div>
+                    <h3>Tâm Người</h3>
+                    <p>
+                        Mỗi đường nét đều chứa đựng sự kiên nhẫn,
+                        khéo léo và tình yêu của người nghệ nhân.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SẢN PHẨM -->
+    <section class="products-section" id="products">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    BỘ SƯU TẬP
+                </p>
+
+                <h2>
+                    Những dáng hình từ đất
+                </h2>
+
+                <p>
+                    Những sản phẩm gốm mang nét đẹp mộc mạc của
+                    Bát Tràng nhưng phù hợp với không gian sống hiện đại.
+                </p>
+
+            </div>
+
+
+            <!-- TÌM KIẾM -->
+            <div class="product-search-wrap">
+                <input
+                    type="search"
+                    id="productSearch"
+                    placeholder="Tìm kiếm sản phẩm..."
+                    aria-label="Tìm kiếm sản phẩm"
+                >
+            </div>
+
+
+            <!-- BỘ LỌC -->
+            <div class="filter-buttons">
+
+                <button class="filter-btn active"
+                        onclick="filterProducts('all', this)">
+                    Tất cả
+                </button>
+
+                <button class="filter-btn"
+                        onclick="filterProducts('binh', this)">
+                    Bình
+                </button>
+
+                <button class="filter-btn"
+                        onclick="filterProducts('bat', this)">
+                    Bát
+                </button>
+
+                <button class="filter-btn"
+                        onclick="filterProducts('am', this)">
+                    Ấm trà
+                </button>
+
+            </div>
+
+
+            <!-- DANH SÁCH SẢN PHẨM -->
+            <div class="product-grid" id="product-list">
+                <!-- JavaScript hiển thị sản phẩm -->
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CÂU CHUYỆN -->
+    <section class="story-section">
+
+        <div class="container story-grid">
+
+            <div class="story-image">
+                <img
+                    src="https://xakhonglao.laichau.gov.vn/upload/2000157/20190726/grab6c6271.jpg"
+                    alt="Làng gốm Bát Tràng"
+                >
+            </div>
+
+            <div class="story-content">
+
+                <p class="section-label">
+                    LÀNG NGHỀ BÁT TRÀNG
+                </p>
+
+                <h2>
+                    Từ một làng nghề<br>
+                    đến một di sản
+                </h2>
+
+                <p>
+                    Bát Tràng là làng nghề gốm lâu đời bên sông Hồng,
+                    nơi nghề làm gốm đã được gìn giữ và phát triển
+                    qua nhiều thế hệ.
+                </p>
+
+                <p>
+                    Ngày nay, những kỹ thuật truyền thống vẫn được
+                    kết hợp với tư duy thiết kế hiện đại để tạo nên
+                    những sản phẩm vừa có giá trị sử dụng, vừa mang
+                    vẻ đẹp văn hóa Việt.
+                </p>
+
+                <a href="battrang_history.html" class="text-link">
+                    Khám phá lịch sử Bát Tràng →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GIÁ TRỊ -->
+    <section class="values-section">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    GIÁ TRỊ CỦA GỐM
+                </p>
+
+                <h2>
+                    Đẹp từ những điều giản dị
+                </h2>
+
+            </div>
+
+            <div class="values-grid">
+
+                <div class="value-item">
+                    <span>01</span>
+                    <h3>Thủ công</h3>
+                    <p>
+                        Mỗi sản phẩm được tạo nên từ sự khéo léo
+                        và chăm chút của người nghệ nhân.
+                    </p>
+                </div>
+
+                <div class="value-item">
+                    <span>02</span>
+                    <h3>Truyền thống</h3>
+                    <p>
+                        Những giá trị của làng nghề được gìn giữ
+                        qua nhiều thế hệ.
+                    </p>
+                </div>
+
+                <div class="value-item">
+                    <span>03</span>
+                    <h3>Hiện đại</h3>
+                    <p>
+                        Kiểu dáng được tinh giản để phù hợp
+                        với những không gian sống hôm nay.
+                    </p>
+                </div>
+
+                <div class="value-item">
+                    <span>04</span>
+                    <h3>An yên</h3>
+                    <p>
+                        Gốm mang sắc thái nhẹ nhàng, giúp không gian
+                        trở nên gần gũi và thư thái hơn.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TƯ VẤN KHÁCH HÀNG -->
+    <section class="consultation-section" id="consultation">
+
+        <div class="container consultation-shell">
+
+            <div class="consultation-intro">
+
+                <div class="eyebrow">CHĂM SÓC KHÁCH HÀNG</div>
+
+                <h2>
+                    Một chút thông tin,<br>
+                    một cuộc tư vấn <em>vừa vặn.</em>
+                </h2>
+
+                <p class="consultation-lead">
+                    Bạn đang phân vân về kiểu dáng, kích thước, chất men
+                    hay cách chọn gốm cho không gian sống? Hãy để lại thông tin,
+                    chúng tôi sẽ liên hệ và tư vấn riêng cho bạn.
+                </p>
+
+                <div class="consultation-hotline">
+                    <span class="hotline-icon">☎</span>
+                    <div>
+                        <small>TƯ VẤN TRỰC TIẾP</small>
+                        <a href="tel:0855337455">0855 337 455</a>
+                    </div>
+                </div>
+
+                <div class="consultation-note">
+                    <span>01</span>
+                    <p>Để lại họ tên &amp; số điện thoại</p>
+                </div>
+
+                <div class="consultation-note">
+                    <span>02</span>
+                    <p>Nhận tư vấn về sản phẩm phù hợp</p>
+                </div>
+
+            </div>
+
+            <form class="customer-form consultation-form"
+                  id="consultationForm"
+                  onsubmit="submitConsultation(event)">
+
+                <div class="form-card-top">
+                    <div>
+                        <span class="form-kicker">TƯ VẤN RIÊNG</span>
+                        <h3>Để lại thông tin</h3>
+                    </div>
+                    <span class="form-mark">✦</span>
+                </div>
+
+                <p class="form-card-desc">
+                    Chúng tôi sẽ sử dụng thông tin này để liên hệ tư vấn.
+                </p>
+
+                <div class="premium-field">
+                    <label for="consultName">Họ và tên</label>
+                    <input
+                        type="text"
+                        id="consultName"
+                        name="name"
+                        placeholder="Ví dụ: Nguyễn Minh Anh"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="premium-field">
+                    <label for="consultPhone">Số điện thoại</label>
+                    <input
+                        type="tel"
+                        id="consultPhone"
+                        name="phone"
+                        placeholder="Ví dụ: 0855 337 455"
+                        inputmode="tel"
+                        autocomplete="tel"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="premium-submit">
+                    <span>Gửi thông tin tư vấn</span>
+                    <span>→</span>
+                </button>
+
+                <p class="privacy-note">
+                    Thông tin của bạn được lưu trong trình duyệt để minh họa
+                    quy trình của website mô phỏng.
+                </p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ĐẶT ĐƠN -->
+    <section class="order-section" id="order">
+
+        <div class="container order-shell">
+
+            <div class="section-heading order-heading">
+                <p class="section-label">ĐẶT ĐƠN HÀNG</p>
+                <h2>Đặt một món gốm về nhà</h2>
+                <p>
+                    Vui lòng để lại thông tin nhận hàng. Sau khi nhận được yêu cầu,
+                    chúng tôi sẽ liên hệ để xác nhận sản phẩm, số lượng và phương thức thanh toán.
+                </p>
+            </div>
+
+            <div class="order-layout">
+
+                <div class="order-form-card">
+
+                    <div class="order-card-header">
+                        <div>
+                            <span class="form-kicker">THÔNG TIN ĐẶT HÀNG</span>
+                            <h3>Đơn hàng của bạn</h3>
+                        </div>
+                        <div class="order-step">01 / 01</div>
+                    </div>
+
+                    <form class="order-form"
+                          id="orderForm"
+                          onsubmit="submitOrder(event)">
+
+                        <div class="order-form-grid">
+
+                            <div class="form-group premium-field">
+                                <label for="orderName">Họ và tên *</label>
+                                <input
+                                    type="text"
+                                    id="orderName"
+                                    name="name"
+                                    placeholder="Nguyễn Văn A"
+                                    autocomplete="name"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group premium-field">
+                                <label for="orderPhone">Số điện thoại *</label>
+                                <input
+                                    type="tel"
+                                    id="orderPhone"
+                                    name="phone"
+                                    placeholder="0855 337 455"
+                                    inputmode="tel"
+                                    autocomplete="tel"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group full-width premium-field">
+                                <label for="orderAddress">Địa chỉ nhận hàng *</label>
+                                <textarea
+                                    id="orderAddress"
+                                    name="address"
+                                    rows="3"
+                                    placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố"
+                                    autocomplete="street-address"
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-group premium-field">
+                                <label for="orderProduct">Tên sản phẩm *</label>
+                                <select id="orderProduct" name="product" required>
+                                    <option value="">-- Chọn sản phẩm --</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group premium-field">
+                                <label for="orderQuantity">Số lượng *</label>
+                                <input
+                                    type="number"
+                                    id="orderQuantity"
+                                    name="quantity"
+                                    min="1"
+                                    value="1"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group full-width premium-field">
+                                <label for="paymentMethod">Thanh toán qua *</label>
+                                <select id="paymentMethod" name="payment" required>
+                                    <option value="">-- Chọn phương thức thanh toán --</option>
+                                    <option value="COD">Thanh toán khi nhận hàng (COD)</option>
+                                    <option value="bank">Chuyển khoản ngân hàng</option>
+                                    <option value="e-wallet">Thanh toán điện tử</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group full-width premium-field">
+                                <label for="orderNote">Ghi chú thêm</label>
+                                <textarea
+                                    id="orderNote"
+                                    name="note"
+                                    rows="3"
+                                    placeholder="Ví dụ: Gọi trước khi giao, đóng gói quà, lời nhắn..."
+                                ></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="order-form-footer">
+                            <div class="order-support">
+                                <span>☎ Cần hỗ trợ đặt hàng?</span>
+                                <a href="tel:0855337455">0855 337 455</a>
+                            </div>
+
+                            <button type="submit" class="premium-submit order-submit-btn">
+                                <span>Gửi thông tin đặt hàng</span>
+                                <span>→</span>
+                            </button>
+
+                            <p class="privacy-note">
+                                * Đây là website mô phỏng phục vụ học tập.
+                                Thông tin đơn hàng được lưu trên trình duyệt để minh họa quy trình.
+                            </p>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <aside class="order-summary-card">
+
+                    <div class="summary-ornament">◌</div>
+
+                    <span class="form-kicker">CHẠM VÀO HỒN VIỆT</span>
+
+                    <h3>Thông tin đơn</h3>
+
+                    <p class="summary-intro">
+                        Chọn sản phẩm và số lượng. Tổng tiền dự kiến sẽ được cập nhật ngay bên dưới.
+                    </p>
+
+                    <div class="summary-product">
+                        <span>Sản phẩm</span>
+                        <strong id="orderSummaryProduct">Chưa chọn</strong>
+                    </div>
+
+                    <div class="summary-product">
+                        <span>Đơn giá</span>
+                        <strong id="orderSummaryPrice">0 đ</strong>
+                    </div>
+
+                    <div class="summary-product">
+                        <span>Số lượng</span>
+                        <strong id="orderSummaryQuantity">1</strong>
+                    </div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-total">
+                        <span>Tạm tính</span>
+                        <strong id="orderSummaryTotal">0 đ</strong>
+                    </div>
+
+                    <div class="summary-hotline">
+                        <span>✦</span>
+                        <p>
+                            Cần hỏi thêm về sản phẩm?<br>
+                            <a href="tel:0855337455">0855 337 455</a>
+                        </p>
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+
+        <div class="container newsletter-content">
+
+            <p class="section-label">
+                GÓC NHỎ YÊU THƯƠNG
+            </p>
+
+            <h2>
+                Để gốm mang bình yên về nhà
+            </h2>
+
+            <p>
+                Đăng ký email để nhận thông tin về sản phẩm mới,
+                những câu chuyện làng nghề và các bộ sưu tập gốm.
+            </p>
+
+            <form onsubmit="subscribeEmail(event)" class="newsletter-form">
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Nhập email của bạn"
+                    required
+                >
+
+                <button type="submit">
+                    Đăng ký
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- GIỎ HÀNG -->
+    <aside class="cart-sidebar" id="cart-sidebar">
+
+        <div class="cart-header">
+
+            <h2>
+                Giỏ hàng
+            </h2>
+
+            <button onclick="toggleCart()" class="close-cart">
+                ×
+            </button>
+
+        </div>
+
+        <div id="cart-items" class="cart-items">
+
+            <p class="empty-cart">
+                Giỏ hàng đang trống.
+            </p>
+
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total">
+                <span>Tổng cộng</span>
+                <strong id="cart-total">0 đ</strong>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">
+                Tiến hành đặt hàng
+            </button>
+
+            <button class="consult-cart-btn"
+                    onclick="toggleCart(false); document.getElementById('order').scrollIntoView({behavior:'smooth'});">
+                Để lại thông tin đặt hàng
+            </button>
+
+        </div>
+
+    </aside>
+
+    <div class="cart-overlay"
+         id="cart-overlay"
+         onclick="toggleCart()">
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+                <h3>CHẠM VÀO HỒN VIỆT</h3>
+                <p>
+                    Gốm nghìn năm, dáng hình hôm nay.
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    Gốm Bát Tràng thủ công
+                </p>
+                <p>
+                    Hà Nội, Việt Nam
+                </p>
+                <p>
+                    ☎ Tư vấn: <a href="tel:0855337455">0855 337 455</a>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 CHẠM VÀO HỒN VIỆT. Website mô phỏng phục vụ học tập.
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
